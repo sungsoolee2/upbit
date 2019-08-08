@@ -1,9 +1,11 @@
 const router = require("express").Router();
-const paulsController = require("../../controllers/paulsController");
+const pricingController = require("../../controllers/pricingController");
 
 // Matches with "/api/'
-router.route("/pricing/historical")
-  .get(paulsController.getHistorical)
+router.route("/pricing/historical").get(pricingController.getHistorical);
+
+router.route("/pricing/all").get(pricingController.getDummyData);
+console.log("In pricing routes!");
 //   .post(booksController.create);
 
 // Matches with "/api/books/:id"

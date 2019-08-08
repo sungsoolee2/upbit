@@ -50,7 +50,9 @@ class Pricing extends Component {
     }
     retrieveHistoricalData = () => {
         // 2016-01-01T00:00:00-06:00
-        API.getHistoricalData();
+        let data = API.getHistoricalData();
+        API.getDummyData();
+        console.log(data);
         
     }
     retrieveSpotPrices = () => {
