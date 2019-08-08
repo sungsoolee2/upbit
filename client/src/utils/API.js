@@ -2,9 +2,10 @@ import axios from 'axios';
 
 const API = {
     getHistoricalData: () => {
-        axios.get('/api/pricing/historical', (req, res) => {
-            res.send('yay route worked!');
-        })
+        return axios.get('/api/pricing/historical');
+    },
+    getDummyData: () => {
+        return axios.get('/api/pricing/all');
     }
 }
 export default API;
