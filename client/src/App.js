@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Pricing from "./pages/Pricing";
 import Navigation from './components/Navigation';
+import Home from "./pages/Home";
 
 
 /************** PASSPORTS ************/
@@ -16,7 +17,9 @@ function App() {
       <Navigation/>
         <Switch>
           {/* we can have this as the catch-all 404 page */}
-          <Route exact path="/" component={Pricing} />
+          <Route exact path="/" component={Home} />
+
+          <Route exact path="/pricing" component={Pricing} />
 
           {/* <Route path="/signup" component={Signup} /> */}
           {/* <Route path="/login" component={Login} /> */}

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
       <li style={{margin: '0 1em'}}><Link to="/signup">Signup</Link></li>
       <li style={{margin: '0 1em'}}><Link to="/login">Login</Link></li>
       <li style={{margin: '0 1em'}}><Link to="/logout">Logout</Link></li>
+      <li style={{margin: '0 1em'}}><Link to="/pricing">Pricing</Link></li>
     </ul>
   </nav>
 )
