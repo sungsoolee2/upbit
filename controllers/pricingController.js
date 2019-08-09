@@ -6,16 +6,20 @@ module.exports = {
     getHistorical: (req, res) => {
         console.log("I ran!");
 
-        axios.get(`https://api.coinbase.com/v2/prices/USD/spot?=2019-01-01-01:00:00-04:00:00`)
+        axios.get('https://api.coinbase.com/v2/prices/USD/')
         .then(coinData => {
             return res.json(coinData)
-        }).catch =(err) =>
+        }).catch(err =>
         {
             console.log("error :(");
-        }
+        })
     },
 
-    getDummyData: (req, res) =>{
-        console.log("My feelings are hurt...");
+    getDummyData: function (req, res) {
+        // Access userId via: req.params.userId
+        // Access bookId via: req.params.bookId
+        res.send(req.params);
+        
     }
+    
 }
