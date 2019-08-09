@@ -6,11 +6,13 @@ module.exports = {
     getHistorical: (req, res) => {
         console.log("I ran!");
 
-        axios.get('https://api.coinbase.com/v2/prices/USD/')
+        axios.get('https://api.coinbase.com/v2/prices/USD/spot')
         .then(coinData => {
-            return res.json(coinData)
+            //console.log(coinData.data);
+            return res.json(coinData.data);
         }).catch(err =>
         {
+            console.log(err);
             console.log("error :(");
         })
     },
