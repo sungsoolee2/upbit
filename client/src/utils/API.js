@@ -8,6 +8,9 @@ const API = {
     },
     getDummyData: () => {
         return axios.get('/api/pricing/');
+    },
+    getAllCoinData: () => {
+        return axios.get('/api/pricing/allcoindata');
     }
 }
 export default API;

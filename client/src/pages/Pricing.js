@@ -52,16 +52,17 @@ class Pricing extends Component {
         // 2016-01-01T00:00:00-06:00
 
         API.getHistoricalData().then(res => {
-            console.log(res.data);
+            // console.log(res.data);
         })
         .catch(err => console.log(err));
         // API.getDummyData();
         
     }
     retrieveSpotPrices = () => {
-        axios.get(`https://api.coinbase.com/v2/prices/USD/spot`)
-        .then(res => {
-            // console.log(res.data);
+        // axios.get(`https://api.coinbase.com/v2/prices/USD/spot`)
+        console.log("hey");
+        API.getAllCoinData().then(res => {
+            console.log("Data here ", res.data.data);
             let data = res.data.data;
             let labels = [];
             let prices = [];
@@ -69,9 +70,11 @@ class Pricing extends Component {
             let coins = [];
             // console.log(data);
             for(let i = 0; i < data.length; i++){
+                console.log("Looking...");
                 labels.push(data[i].base);
                 prices.push(parseFloat(data[i].amount));
                 coins.push({label: data[i].base, price: data[i].amount});
+                console.log(data[i].base);
             }
             // console.log(coins);
 
@@ -79,11 +82,11 @@ class Pricing extends Component {
 
             let filterArray = [];
             let maxValue = parseFloat(coins[0].price);
-            // for (const price in coins) {
-            //     if (price > maxValue) {
-            //         maxValue = price;
-            //     }
-            // }
+            for (const price in coins) {
+                if (price > maxValue) {
+                    maxValue = price;
+                }
+            }
 
             for(let i = 1; i < coins.length; i++){
                 if(parseFloat(coins.price) > maxValue){
