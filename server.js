@@ -26,9 +26,9 @@ app.use(express.static("public"));
 // =============================================================
 // require("./routes/api-routes.js")(app);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 // Add routes, both API and view
 app.use(routes);
 
