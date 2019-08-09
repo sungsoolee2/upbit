@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Pricing from "./pages/Pricing";
-// import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/index';
+import Container from './styles/container.css'
 import Home from "./pages/Home";
 // import PrivateRoute from './lib/PrivateRoute'
 
@@ -13,20 +14,20 @@ import Home from "./pages/Home";
 function App() {
   return (
     <Router>
-      <div>
-      {/* <Navigation/> */}
-      <main>
+
+        <div className="frontContainer" style={Container}>
+        <Navigation/>
         <Switch>
           {/* we can have this as the catch-all 404 page */}
           <Route exact path="/" component={Home} />
           <Route exact path="/pricing" component={Pricing} />
           {/* <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} /> 
-           <Route path="/logout" component={Logout} /> */}
+          <Route path="/logout" component={Logout} /> */}
 
         </Switch>
-        </main>
-      </div>
+        </div>
+     
     </Router>
   );
 }

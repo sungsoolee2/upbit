@@ -3,6 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import PricingGraph from '../components/PricingGraph'
 import {Container, Row, Col} from '../components/Grid'
+import '../components/PricingGraph/market.css'
 
 import API from '../utils/API';
 
@@ -111,24 +112,35 @@ class Pricing extends Component {
         this.retrieveHistoricalData();
     }
 
+    // render (){
+    //     return (
+    //             <Container fluid>
+    //                 <Row>
+    //                     <Col size="md-6">
+    //                         <PricingGraph
+    //                             labels= {this.state.labels}
+    //                             prices= {this.state.prices}
+    //                         />
+    //                     </Col>
+    //                     <Col size="md-6">
+    //                         <PricingGraph
+    //                             labels= {this.state.noOutlierslabels}
+    //                             prices= {this.state.noOutliersprices}
+    //                         />
+    //                     </Col>
+    //                 </Row>
+    //             </Container>
+    //     );
+    // }
     render (){
         return (
-                <Container fluid>
-                    <Row>
-                        <Col size="md-6">
-                            <PricingGraph
-                                labels= {this.state.labels}
-                                prices= {this.state.prices}
-                            />
-                        </Col>
-                        <Col size="md-6">
-                            <PricingGraph
-                                labels= {this.state.noOutlierslabels}
-                                prices= {this.state.noOutliersprices}
-                            />
-                        </Col>
-                    </Row>
-                </Container>
+                <div className="pricingContent">
+                    <PricingGraph
+                        labels= {this.state.noOutlierslabels}
+                        prices= {this.state.noOutliersprices}
+                    />
+                </div>
+               
         );
     }
   }

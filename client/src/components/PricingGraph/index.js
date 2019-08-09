@@ -1,6 +1,6 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import './style.css'
+import './market.css'
 function PricingGraph(props) {
   // console.log(props);
   const data = {
@@ -93,8 +93,8 @@ function PricingGraph(props) {
     // }
     // }];
     return (
-      <div>
-        <h2>Pricing Data for Different Crytocurrencies</h2>
+      <div className="graphDiv">
+        <h2 className="graphTitle">Pricing Data for Different Crytocurrencies</h2>
         <Bar
           data={data}
           options={options}

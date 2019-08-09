@@ -1,0 +1,13 @@
+.pricingContent{
+    grid-area: b;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "left graph right"
+      "left graph right"
+      "bot bot bot";
+}
+.graphDiv{
+    grid-area: graph;
+}
