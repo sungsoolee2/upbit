@@ -2,9 +2,9 @@ const router = require("express").Router();
 const pricingController = require("../../controllers/pricingController");
 
 // Matches with "/api/'
-router.route("/pricing/historical").get(pricingController.getHistorical);
-
-router.route("/pricing/all").get(pricingController.getDummyData);
+router.route("/historical").get(pricingController.getHistorical);
+console.log("I suck at coding");
+router.route("/").get(pricingController.getDummyData);
 // console.log("In pricing routes!");
 //   .post(booksController.create);
 
