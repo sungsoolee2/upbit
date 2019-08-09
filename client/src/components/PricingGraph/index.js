@@ -12,11 +12,13 @@ function PricingGraph(props) {
     fill: false,
     borderColor: '#EC932F',
     backgroundColor: '#EC932F',
+    // backgroundColor: '#f5f5f5',
     pointBorderColor: '#EC932F',
     pointBackgroundColor: '#EC932F',
     pointHoverBackgroundColor: '#EC932F',
     pointHoverBorderColor: '#EC932F',
-    yAxisID: 'y-axis-1'
+    yAxisID: 'y-axis-1',
+
     }]
   }
     // },{
@@ -43,6 +45,7 @@ function PricingGraph(props) {
     elements: {
     line: {
     fill: false
+
     }
     },
     scales: {
@@ -51,7 +54,7 @@ function PricingGraph(props) {
       {
         display: true,
         gridLines: {
-          display: false
+          display: true
         },
     
         labels: props.labels,
@@ -64,7 +67,7 @@ function PricingGraph(props) {
         position: 'left',
         id: 'y-axis-1',
         gridLines: {
-          display: false
+          display: true
         },
         labels: {
           show: true
@@ -92,6 +95,7 @@ function PricingGraph(props) {
     // ctx.fillText("This text drawn by a plugin", 100, 100);
     // }
     // }];
+
     return (
       <div className="graphDiv">
         <h2 className="graphTitle">Pricing Data for Different Crytocurrencies</h2>

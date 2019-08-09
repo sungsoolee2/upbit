@@ -1,4 +1,5 @@
 .pricingContent{
+    background-image: linear-gradient(to bottom right, #090633, #113a92);
     grid-area: b;
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -7,6 +8,7 @@
       "left graph right"
       "left graph right"
       "bot bot bot";
+    color: whitesmoke;
 }
 .graphDiv{
     grid-area: graph;
