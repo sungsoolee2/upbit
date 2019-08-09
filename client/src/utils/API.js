@@ -1,12 +1,13 @@
 import axios from 'axios';
+// import API from '../../../classes/external/api';
 
 const API = {
-    getHistoricalData: ( req, res ) => {
+    getHistoricalData: () => {
         console.log("I do ping");
         return axios.get('/api/pricing/historical');
     },
-    getDummyData: ( req, res ) => {
-        return axios.get('/api/pricing/all');
+    getDummyData: () => {
+        return axios.get('/api/pricing/');
     }
 }
 export default API;
