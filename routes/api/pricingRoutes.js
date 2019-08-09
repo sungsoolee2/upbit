@@ -5,6 +5,8 @@ const pricingController = require("../../controllers/pricingController");
 router.route("/historical").get(pricingController.getHistorical);
 
 router.route("/").get(pricingController.getDummyData);
+
+router.route("/allcoindata").get(pricingController.getAllCoinData);
 // console.log("In pricing routes!");
 //   .post(booksController.create);
 
