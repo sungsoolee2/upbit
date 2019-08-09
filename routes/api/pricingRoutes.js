@@ -5,7 +5,7 @@ const pricingController = require("../../controllers/pricingController");
 router.route("/pricing/historical").get(pricingController.getHistorical);
 
 router.route("/pricing/all").get(pricingController.getDummyData);
-console.log("In pricing routes!");
+// console.log("In pricing routes!");
 //   .post(booksController.create);
 
 // Matches with "/api/books/:id"
