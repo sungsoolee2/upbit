@@ -1,5 +1,5 @@
 require("dotenv").config();
-console.log(require("dotenv").config())
+// console.log(require("dotenv").config())
 
 const passport = require('passport')
 const jwt = require('jsonwebtoken')

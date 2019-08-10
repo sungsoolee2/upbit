@@ -1,25 +1,26 @@
-const mongoose =  require('mongoose');
+const mongoose = require('mongoose');
 const db = require('../db');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 require("dotenv").config();
 
+
 module.exports = {
     signUpNewUser: (req, res) => {
         console.log(req);
-        let {username, password} = req.body;
-    
+        let { username, password } = req.body;
+
         db.User.create({
             username,
             password
         }).then(user => {
             console.log(user);
             //Token
-		const token = jwt.sign({id: user.id}, 'jwt_secret')
-		res.json({token: token})
-		
-		console.log(token)
-		
+            const token = jwt.sign({ id: user.id }, 'jwt_secret')
+            res.json({ token: token })
+
+            console.log(token)
+
         }).catch(err => {
             console.log(`insert didn't work properly`);
         })
@@ -33,11 +34,11 @@ module.exports = {
             session: false
         }), (req, res) => {
             console.log(`passport auth passed`);
-        
+
             // Token
-            const token = jwt.sign({id: req.user.id}, 'jwt_secret');
+            const token = jwt.sign({ id: req.user.id }, 'jwt_secret');
             console.log(token);
-            res.json({token: token});
+            res.json({ token: token });
         };
         console.log("After user login!");
     },
@@ -46,6 +47,24 @@ module.exports = {
         req.logout();
         res.send("User should be logged out!")
         // localStorage.removeItem('token');
-        // console.log("logged out");
+        
+    },
+    // Return user information
+    userInfo: (req, res) => {
+        console.log("Getting user info!")
+        passport.authenticate('jwt', {
+            session: false
+        }), (req, res) => {
+            console.log("Got user info");
+            if (!req.user) {
+                res.json({
+                    username: 'nobody'
+                })
+            }
+
+            res.json({
+                username: req.user.username
+            })
+        }
     }
 }

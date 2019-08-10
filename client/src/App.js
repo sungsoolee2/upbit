@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Pricing from "./pages/Pricing";
 import Navigation from './components/Navigation';
 import Home from "./pages/Home";
-// import PrivateRoute from './PrivateRoute'
+import PrivateRoute from './PrivateRoute'
 
 /************** PASSPORTS ************/
 import Login from './components/Login';
