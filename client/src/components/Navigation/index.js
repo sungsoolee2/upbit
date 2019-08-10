@@ -22,6 +22,8 @@ import './navbar.css'
               <span id = "about" className="homeAuth">ABOUT</span>
               <span>|</span>
               <Link style={{ textDecoration: 'none' }} to="/login"><span id = "login" className="homeAuth">LOGIN</span></Link>
+              <span>|</span>
+              <Link style={{ textDecoration: 'none' }} to="/signup"><span id = "login" className="homeAuth">SIGNUP</span></Link>
           </div>
 
 
