@@ -8,13 +8,17 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
+    console.log(`component did mount1`)
     fetch('/api/user', {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }
     }).then(res => {
+      console.log(`fetch completed`)
+      console.log(res)
       return res.json()
     }).then(user => {
+      console.log(`2nd promise`)
       this.setState({user: user})
     }).catch( err => {
       console.log(err)
