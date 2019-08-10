@@ -10,14 +10,17 @@ function PricingGraph(props) {
     type:'line',
     data: props.prices,
     fill: false,
-    borderColor: '#EC932F',
-    backgroundColor: '#EC932F',
+    borderColor: '#cfbd18', 
+    // borderColor: '#55cbfa',   
+    backgroundColor: '#cfbd18',
+    borderJoinStyle: 'miter',
     // backgroundColor: '#f5f5f5',
-    pointBorderColor: '#EC932F',
-    pointBackgroundColor: '#EC932F',
-    pointHoverBackgroundColor: '#EC932F',
-    pointHoverBorderColor: '#EC932F',
+    pointBorderColor: '#cfbd18',
+    pointBackgroundColor: '#cfbd18',
+    // pointHoverBackgroundColor: '#EC932F',
+    // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
+    
 
     }]
   }
@@ -54,7 +57,8 @@ function PricingGraph(props) {
       {
         display: true,
         gridLines: {
-          display: true
+          display: true,
+          color: '#3a3a3aa4'
         },
     
         labels: props.labels,
@@ -67,7 +71,8 @@ function PricingGraph(props) {
         position: 'left',
         id: 'y-axis-1',
         gridLines: {
-          display: true
+          display: true,
+          color: '#3a3a3aa4'
         },
         labels: {
           show: true
@@ -102,6 +107,7 @@ function PricingGraph(props) {
         <Bar
           data={data}
           options={options}
+
           // plugins={plugins}
         />
       </div>

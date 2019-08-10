@@ -14,9 +14,9 @@ import Home from "./pages/Home";
 function App() {
   return (
     <Router>
-
+    <Navigation/>
         <div className="frontContainer" style={Container}>
-        <Navigation/>
+    
         <Switch>
           {/* we can have this as the catch-all 404 page */}
           <Route exact path="/" component={Home} />
@@ -29,6 +29,7 @@ function App() {
         </div>
      
     </Router>
+    
   );
 }
 

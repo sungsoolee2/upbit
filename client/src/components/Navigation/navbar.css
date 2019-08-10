@@ -1,15 +1,17 @@
 .navBar {
-
+    background: rgba(245, 245, 245, 0.767);
     /* height: 100px; */
     /* background: none; */
     /* background: #010316; */
-    background: rgba(245, 245, 245, 0.767);
-    grid-area: a;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fry;
     grid-template-areas: "logo opt opt mid login";
   }
-  
+   
   .logoDiv{
       grid-area: logo;
       justify-self: center;

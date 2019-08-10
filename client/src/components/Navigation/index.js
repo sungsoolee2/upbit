@@ -18,10 +18,10 @@ import './navbar.css'
                 <span id = "support" className="homeNav">FAQ</span>
         </div>
 
-        <div class="loginDiv">
-              <span id = "about" class="homeAuth">ABOUT</span>
+        <div className="loginDiv">
+              <span id = "about" className="homeAuth">ABOUT</span>
               <span>|</span>
-              <Link style={{ textDecoration: 'none' }} to="/login"><span id = "login" class="homeAuth">LOGIN</span></Link>
+              <Link style={{ textDecoration: 'none' }} to="/login"><span id = "login" className="homeAuth">LOGIN</span></Link>
           </div>
 
 
