@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import isAuthenticated from '../lib/isAuthenticated'
+import isAuthenticated from '../isAuthenticated'
 
 export default class Signup extends Component {
 
@@ -25,8 +25,8 @@ export default class Signup extends Component {
     fetch('/api/signup', {
       method: 'POST',
       body: params
-    }).then( (res) => {
-      return res.json()
+    //}).then( (res) => {
+     // return res.json()
     }).then(data => {
       localStorage.setItem('token', data.token)
       this.setState({loggedin: true})
@@ -66,4 +66,4 @@ export default class Signup extends Component {
       )
     }
   }
-}
+};

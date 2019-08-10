@@ -11,6 +11,9 @@ const API = {
     },
     getAllCoinData: () => {
         return axios.get('/api/pricing/allcoindata');
+    },
+    getSenseDataBTC: () => {
+        return axios.get('/api/pricing/senseBTC');
     }
 }
 export default API;
