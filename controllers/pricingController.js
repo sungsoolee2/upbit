@@ -40,7 +40,7 @@ module.exports = {
 
     omenicsDataBTC: (req, res) => {
         // console.log("KEY");
-        res.send(authOMC);
+        // res.send(authOMC);
 
         axios.get("https://omenics.com/api/v1/BTC", { headers: { Authorization: 'Bearer '.concat(authOMC)}}).then(btc => {
             //console.log(coinData.data);
@@ -51,5 +51,9 @@ module.exports = {
             console.log(err);
             console.log("error :(");
         })
+    },
+
+    omenicsDataBTCHistorical: (req, res) => {
+
     }
 }
