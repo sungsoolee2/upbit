@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import isAuthenticated from './isAuthenticated'
+import isAuthenticated from '../isAuthenticated'
 
 // Router that checks if user is logged-in
 // If not, redirect to "/login"

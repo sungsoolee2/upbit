@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import isAuthenticated from '../lib/isAuthenticated'
+import isAuthenticated from '../../isAuthenticated'
 
 export default class Login extends Component {
   
