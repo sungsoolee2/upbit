@@ -4,12 +4,12 @@ import Pricing from "./pages/Pricing";
 import Navigation from './components/Navigation/index';
 import Container from './styles/container.css'
 import Home from "./pages/Home";
-// import PrivateRoute from './lib/PrivateRoute'
+import PrivateRoute from './PrivateRoute'
 
 /************** PASSPORTS ************/
-// import Login from './components/Login';
-// import Logout from './components/Logout';
-// import Signup from './pages/Signup';
+import Login from './components/Login';
+import Logout from './components/Logout';
+import Signup from './pages/Signup';
 
 function App() {
   return (

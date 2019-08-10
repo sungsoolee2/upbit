@@ -5,14 +5,10 @@ const pricingController = require("../../controllers/pricingController");
 router.route("/historical").get(pricingController.getHistorical);
 
 router.route("/").get(pricingController.getDummyData);
-// console.log("In pricing routes!");
-//   .post(booksController.create);
 
-// Matches with "/api/books/:id"
-// router
-//   .route("/:id")
-//   .get(booksController.findById)
-//   .put(booksController.update)
-//   .delete(booksController.remove);
+router.route("/allcoindata").get(pricingController.getAllCoinData);
+
+
+router.route("/senseBTC").get(pricingController.omenicsDataBTC);
 
 module.exports = router;

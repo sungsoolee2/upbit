@@ -1,5 +1,6 @@
-const mongoose = require('mongoose'),
-      bcrypt = require('bcrypt')
+const mongoose = require('mongoose');
+
+const bcrypt = require('bcrypt');
 
 // Mongoose Model
 var userSchema = new mongoose.Schema({
@@ -8,7 +9,7 @@ var userSchema = new mongoose.Schema({
     index: true,
     unique: true,
     minlength: 2,
-    maxlength: 16,
+    maxlength: 50,
     lowercase: true,
     required: true,
 
