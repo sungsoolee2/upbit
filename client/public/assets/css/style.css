@@ -1,0 +1,212 @@
+html,
+body {
+  /* background-image: url(../images/chicagoneon.jpg); */
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.frontContainer {
+  /* background-image: url(../images/lakemichi,.gan.jpg); */
+  /* background-size: 100% 100%; */
+  /* background: #080072; */
+  /* background-image: linear-gradient(to bottom right, #090633, #113a92); */
+  /* background-image: linear-gradient(to top right, #063317, #0db157); */
+  background-image: url(../images/b21.png);
+    background-size: 100% 100%;
+  min-width: 100%;
+  min-height: 100vh; 
+  /* min-height: 100%; */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "a a a a a a"
+    "b b b b b b"
+    "b b b b b b";
+}
+.navBar {
+
+  /* height: 100px; */
+  /* background: none; */
+  /* background: #010316; */
+  background: rgba(245, 245, 245, 0.767);
+  grid-area: a;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "logo opt opt mid login";
+}
+
+.logoDiv{
+    grid-area: logo;
+    justify-self: center;
+    /* align-self: end; */
+}
+#navLogo{
+    height: 50px;
+    width: 120px;
+  
+}
+.homeMenu{
+    grid-area: opt;
+    /* justify-self: center; */
+    align-self: end;
+    margin-bottom: 15px;
+
+}
+.homeNav{
+    display: hidden;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    /* color: rgb(74, 107, 121); */
+    color: rgb(0, 46, 46);
+    margin: 0px 10px 0px 10px;
+    padding: 5px;
+}
+.homeNav:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background: #818181;
+    /* border: #113a92 solid 1px; */
+}
+.loginDiv{
+    /* border: #092e5f solid 1px; */
+    grid-area: login;
+    justify-self: center;
+    align-self: end;
+    margin-bottom: 15px;
+    /* color: rgb(88, 127, 143); */
+    color: rgb(88, 127, 143);
+}
+.homeAuth{
+    margin: 0px 10px 0px 10px;
+    /* color: rgb(20, 158, 61); */
+    color: rgb(88, 127, 143);
+}
+
+.frontContent{
+  font-family: "Rajdhani", sans-serif;
+  grid-area: b;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "c c c"
+    "d d d"
+    "d d d"
+    "d d d";
+  /* background-image: url(../images/earthview.jpg); */
+  /* background-size: 100% 100%; */
+}
+.greetDiv{
+    /* background-image: url(../images/wormeyebldg.jpg);
+    background-size: 40% 50%;
+    background-repeat: no-repeat; */
+    display: flex;
+    margin-top: 100px;
+    color: rgb(182, 179, 179);
+    text-align: center;
+    grid-area: c;
+    flex-direction: column;
+    align-items: center;
+}
+/* #greet{
+} */
+.greetNav{
+    
+    /* background: #415868; */
+    width: 33%;
+    padding: 40px;
+    /* border-radius: 5px; */
+    /* margin-top: 50px; */
+}
+.greetOpt:hover{
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    background: whitesmoke;
+}
+.botDiv{
+    height: 68px;
+}
+.highlights{
+    /* background: rgba(245, 245, 245, 0.767); */
+    grid-area: d;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "trading infra dta";
+    align-items: flex-end;
+    text-align: center;
+    padding: 50px;
+    color: rgb(88, 127, 143);
+    font-family: "Rajdhani", sans-serif;
+}
+.emblem{
+    background: #818181;
+}
+.infoimg{
+    height: 120px;
+    width: 120px;
+}
+.infohead{
+    font-weight: bold;
+}
+.textinfo{
+    font-size: 130%;
+}
+.trading{
+    margin: 0px 15px 0px 15px;
+    grid-area: trading;
+    /* color: rgb(88, 127, 143); */
+}
+.infra{
+    margin: 0px 15px 0px 15px;
+    grid-area: infra;
+}
+.data{
+    margin: 0px 15px 0px 15px;
+    grid-area: dta;
+}
+
+.footer{
+    height: 75px;
+    /* background: #0f0a5a; */
+    background-image: linear-gradient(to bottom right, #091f4e, #0b2b6e);
+    /* background-image: linear-gradient(to top right, #063317, #097238); */
+    color: rgb(160, 160, 160);
+    font-family: "Rajdhani", sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+.sclbtn{
+    margin: 5px 5px 0px 5px;
+  }
+.sclbtn:hover{
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    cursor: pointer;
+    filter: brightness(400%)
+}
+/* .signCard{
+    color: rgb(182, 179, 179);
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* #signupForm{
+    display: flex;
+} */
+/* .footer{
+    height: 50px;
+} */
