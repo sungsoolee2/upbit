@@ -1,0 +1,62 @@
+.navBar {
+    background: rgba(245, 245, 245, 0.767);
+    /* height: 100px; */
+    /* background: none; */
+    /* background: #010316; */
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fry;
+    grid-template-areas: "logo opt opt mid login";
+  }
+   
+  .logoDiv{
+      grid-area: logo;
+      justify-self: center;
+      /* align-self: end; */
+  }
+  #navLogo{
+      height: 50px;
+      width: 120px;
+    
+  }
+  .homeMenu{
+      grid-area: opt;
+      /* justify-self: center; */
+      align-self: end;
+      margin-bottom: 15px;
+  
+  }
+  .homeNav{
+      display: hidden;
+      -moz-transition: all .2s ease-in;
+      -o-transition: all .2s ease-in;
+      -webkit-transition: all .2s ease-in;
+      transition: all .2s ease-in;
+      /* color: rgb(74, 107, 121); */
+      color: rgb(0, 46, 46);
+      margin: 0px 10px 0px 10px;
+      padding: 5px;
+  }
+  .homeNav:hover{
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      background: #818181;
+      /* border: #113a92 solid 1px; */
+  }
+  .loginDiv{
+      /* border: #092e5f solid 1px; */
+      grid-area: login;
+      justify-self: center;
+      align-self: end;
+      margin-bottom: 15px;
+      /* color: rgb(88, 127, 143); */
+      color: rgb(88, 127, 143);
+  }
+  .homeAuth{
+      margin: 0px 10px 0px 10px;
+      /* color: rgb(20, 158, 61); */
+      color: rgb(88, 127, 143);
+  }

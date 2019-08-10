@@ -1,0 +1,43 @@
+html,
+body {
+  /* background-image: url(../images/chicagoneon.jpg);
+  background-color: black; */
+
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.frontContainer {
+    /* background-image: url(../images/lakemichigan.jpg); */
+    /* background-size: 100% 100%; */
+    /* background: #080072; */
+
+     /* background-image: linear-gradient(to top right, #063317, #0db157); */
+      /* background-image: linear-gradient(to top right, #070707, #4b4b4b); */
+    min-width: 100%;
+    min-height: 100vh;
+    /* min-height: 100%; */
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "b b b"
+      "b b b"
+      "b b b"
+      "b b b";
+      font-family: "Rajdhani", sans-serif;
+  }
+.topDiv{
+  /* background-image: linear-gradient(to bottom right, #090633, #113a92); */
+  height: 54px;
+  grid-area: a;
+}
+.botDiv{
+  background: whitesmoke;
+  color: #cfbd18;
+  height: 100px;
+  grid-area: c;
+}
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import './style.css'
+import './market.css'
 function PricingGraph(props) {
   // console.log(props);
   const data = {
@@ -10,13 +10,18 @@ function PricingGraph(props) {
     type:'line',
     data: props.prices,
     fill: false,
-    borderColor: '#EC932F',
-    backgroundColor: '#EC932F',
-    pointBorderColor: '#EC932F',
-    pointBackgroundColor: '#EC932F',
-    pointHoverBackgroundColor: '#EC932F',
-    pointHoverBorderColor: '#EC932F',
-    yAxisID: 'y-axis-1'
+    borderColor: '#cfbd18', 
+    // borderColor: '#55cbfa',   
+    backgroundColor: '#cfbd18',
+    borderJoinStyle: 'miter',
+    // backgroundColor: '#f5f5f5',
+    pointBorderColor: '#cfbd18',
+    pointBackgroundColor: '#cfbd18',
+    // pointHoverBackgroundColor: '#EC932F',
+    // pointHoverBorderColor: '#EC932F',
+    yAxisID: 'y-axis-1',
+    
+
     }]
   }
     // },{
@@ -43,6 +48,7 @@ function PricingGraph(props) {
     elements: {
     line: {
     fill: false
+
     }
     },
     scales: {
@@ -51,7 +57,8 @@ function PricingGraph(props) {
       {
         display: true,
         gridLines: {
-          display: false
+          display: true,
+          color: '#3a3a3aa4'
         },
     
         labels: props.labels,
@@ -64,7 +71,8 @@ function PricingGraph(props) {
         position: 'left',
         id: 'y-axis-1',
         gridLines: {
-          display: false
+          display: true,
+          color: '#3a3a3aa4'
         },
         labels: {
           show: true
@@ -92,12 +100,14 @@ function PricingGraph(props) {
     // ctx.fillText("This text drawn by a plugin", 100, 100);
     // }
     // }];
+
     return (
-      <div>
-        <h2>Pricing Data for Different Crytocurrencies</h2>
+      <div className="graphDiv">
+        <h2 className="graphTitle">Pricing Data for Different Crytocurrencies</h2>
         <Bar
           data={data}
           options={options}
+
           // plugins={plugins}
         />
       </div>
