@@ -4,6 +4,7 @@ import moment from 'moment';
 import PricingGraph from '../components/PricingGraph'
 import {Container, Row, Col} from '../components/Grid'
 import '../components/PricingGraph/market.css'
+import HistoricalGraph from '../components/HistoricalGraph'
 
 import API from '../utils/API';
 
@@ -47,12 +48,20 @@ class Pricing extends Component {
         prices: [],
         noOutliersprices: [],
         noOutlierslabels: [],
-        allSpotPrices: []
+        allSpotPrices: [],
+        historicalBTC: []
     }
 
     retrieveSenseData = () => {
         API.getSenseDataBTC().then(res => {
-            // console.log(res);
+            console.log(res);
+
+            //{prices: [], volume: []}
+            this.setState({
+                historicalBTC: res.data
+            })
+
+            
         })
         .catch(err => console.log(err));
     }
@@ -148,14 +157,25 @@ class Pricing extends Component {
     // }
     render (){
         return (
+            // <div>
                 <div className="pricingContent">
                     <PricingGraph
                         labels= {this.state.noOutlierslabels}
-                        prices= {this.state.noOutliersprices}
+                        prices= {this.state.noOutliersprices} 
+                        title= {"Pricing Data for Different Crytocurrencies"} 
                     />
+
+                    
                 </div>
+                );
+                                    {/* <HistoricalGraph
+                        labels= {this.state.historicalBTC.time}
+                        prices= {this.state.historicalBTC.prices} 
+                        volume= {this.state.historicalBTC.volume} 
+                    /> */}
+                {/* </div> */}
                
-        );
+        
     }
   }
 
