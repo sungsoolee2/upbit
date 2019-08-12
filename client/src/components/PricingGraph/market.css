@@ -13,6 +13,10 @@
       "bot bot bot";
     color: whitesmoke;
 }
+.graphHead{
+  display: flex;
+  justify-content: space-between;
+}
 .graphTitle{
   color: rgb(179, 179, 179);
   /* color: #5c5c5c; */
@@ -26,3 +30,5 @@
   /* background-image: linear-gradient(to top right, #919191, #d1ebec); */
   grid-area: graph;
 }
+
+
