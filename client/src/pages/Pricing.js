@@ -5,7 +5,7 @@ import PricingGraph from '../components/PricingGraph'
 import {Container, Row, Col} from '../components/Grid'
 import '../components/PricingGraph/market.css'
 import HistoricalGraph from '../components/HistoricalGraph'
-
+import RegressionGraph from '../components/RegressionGraph'
 import API from '../utils/API';
 
 /**
@@ -113,7 +113,7 @@ class Pricing extends Component {
                     filterArray.push(coins[i]);
                 }
             }
-            let result = coins.map(({ label }) => label) //this works
+            // let result = coins.map(({ label }) => label) //this works
             // console.log("Labels: "+result);
             //   let filtered = prices.filter(function (str) { return str.includes(PATTERN); });
             
@@ -124,6 +124,7 @@ class Pricing extends Component {
                 noOutlierslabels: filterArray.map(({ label }) => label),
                 noOutliersprices: filterArray.map(({ price }) => price)
               });
+            //   console.log("prices "+this.state.noOutliersprices);
         })        
     }
 
@@ -165,7 +166,7 @@ class Pricing extends Component {
                         title= {"Pricing Data for Different Crytocurrencies"} 
                     />
 
-                    
+
                 </div>
                 );
                                     {/* <HistoricalGraph

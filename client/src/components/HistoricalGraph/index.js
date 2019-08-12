@@ -30,7 +30,7 @@ function HistoricalGraph(props) {
     borderColor: '#71B37C',
     hoverBackgroundColor: '#71B37C',
     hoverBorderColor: '#71B37C',
-    yAxisID: 'y-axis-1'
+    yAxisID: 'y-axis-2'
     }]
     };
     

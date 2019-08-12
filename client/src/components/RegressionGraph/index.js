@@ -2,16 +2,25 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import regression from 'regression';
 import './style.css'
+import { parse } from 'querystring';
 function RegressionGraph(props) {
   // console.log(props);
-  const result = regression.linear(props.prices);
+  console.log(props.prices);
+  let parsedData = [];
+
+  for(let i = 0; i < props.prices.length; i++){
+    parsedData.push(parseFloat(props.prices[i]));
+  }
+  console.log(parsedData);
+  const result = regression.linear(parsedData);
   console.log(result);
+  
   const data = {
     //line for the pricing data
     datasets: [{
     label: 'Spot price in USD',
     type:'line',
-    data: props.prices,
+    data: parsedData,
     fill: false,
     borderColor: '#cfbd18', 
     // borderColor: '#55cbfa',   
@@ -27,13 +36,13 @@ function RegressionGraph(props) {
     //bar??????? maybe replace this with another line graph to demonstrate volume
     type: 'line',
     label: 'Regression Analysis',
-    data: result,
+    data: parsedData,
     fill: false,
     backgroundColor: '#71B37C',
     borderColor: '#71B37C',
     hoverBackgroundColor: '#71B37C',
     hoverBorderColor: '#71B37C',
-    yAxisID: 'y-axis-1'
+    yAxisID: 'y-axis-2'
     }]
     };
     
@@ -95,7 +104,7 @@ function RegressionGraph(props) {
 
     return (
       <div className="graphDiv">
-        <h2 className="graphTitle">Pricing Data for Different Crytocurrencies</h2>
+        <h2 className="graphTitle">{props.title}</h2>
         <Bar
           data={data}
           options={options}
