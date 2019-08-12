@@ -17,6 +17,9 @@ const API = {
     },
     getHistData: (ticker) => {
         return axios.get('api/historical/getHistData/'+ticker);
+    },
+    getNews: () => {
+        return axios.get('/api/news');
     }
 }
 export default API;

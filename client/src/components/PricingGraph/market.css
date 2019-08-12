@@ -1,9 +1,9 @@
 .pricingContent{
     background-image: url(./b2.jpg);
-    /* background-size: 100% 100%; */
-    /* background: #065488; */
+    background-size: 100% 100%;
+    background: #065488; 
    
-    /* grid-area: b;
+    grid-area: b;
     display: grid;
     grid-template-columns: 100px 1fr 100px;
     grid-template-rows: auto auto 1fr;
@@ -11,7 +11,11 @@
       "left graph right"
       "left graph right"
       "bot bot bot";
-    color: whitesmoke; */
+    color: whitesmoke;
+}
+.graphHead{
+  display: flex;
+  justify-content: space-between;
 }
 .graphTitle{
   color: rgb(179, 179, 179);
@@ -26,3 +30,5 @@
   /* background-image: linear-gradient(to top right, #919191, #d1ebec); */
   grid-area: graph;
 }
+
+

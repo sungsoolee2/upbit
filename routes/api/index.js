@@ -2,7 +2,8 @@ const router = require("express").Router();
 const pricingRoutes = require("./pricingRoutes");
 const historicalRoutes = require("./historicalRoutes");
 // const passportRoutes = require('./passport');
-const signupRoutes = require('./signupRoutes.js')
+const newsRoutes = require('./newsRoutes');
+const signupRoutes = require('./signupRoutes.js');
 const userRoutes = require('./userRoutes.js');
 const loginRoutes = require('./loginRoutes.js');
 const userController = require('../../controllers/userController');
@@ -18,4 +19,5 @@ router.use('/logout', userController.logoutUser);
 
 router.use('/user', userRoutes);
 
+router.use('/news', newsRoutes);
 module.exports = router;

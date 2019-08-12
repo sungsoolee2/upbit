@@ -44,6 +44,7 @@ let filterOutliers = (someArray) => {
 
 class Pricing extends Component {
     state = {
+        icon:[],
         labels: [],
         prices: [],
         noOutliersprices: [],
@@ -81,13 +82,14 @@ class Pricing extends Component {
         API.getAllCoinData().then(res => {
             console.log("Data here ", res.data.data);
             let data = res.data.data;
+            let icon = {};
             let labels = [];
             let prices = [];
-            let coin = {};
             let coins = [];
             // console.log(data);
             for(let i = 0; i < data.length; i++){
                 console.log("Looking...");
+              
                 labels.push(data[i].base);
                 prices.push(parseFloat(data[i].amount));
                 coins.push({label: data[i].base, price: data[i].amount});
