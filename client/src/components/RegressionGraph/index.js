@@ -1,19 +1,26 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import './market.css'
-import DropdownApp from './dropdown/dropdownapp.js'
-
-
-function PricingGraph(props) {
-  
-  console.log()
+import regression from 'regression';
+import './style.css'
+import { parse } from 'querystring';
+function RegressionGraph(props) {
   // console.log(props);
+  console.log(props.prices);
+  let parsedData = [];
+
+  for(let i = 0; i < props.prices.length; i++){
+    parsedData.push(parseFloat(props.prices[i]));
+  }
+  console.log(parsedData);
+  const result = regression.linear(parsedData);
+  console.log(result);
+  
   const data = {
     //line for the pricing data
     datasets: [{
     label: 'Spot price in USD',
     type:'line',
-    data: props.prices,
+    data: parsedData,
     fill: false,
     borderColor: '#cfbd18', 
     // borderColor: '#55cbfa',   
@@ -25,24 +32,22 @@ function PricingGraph(props) {
     // pointHoverBackgroundColor: '#EC932F',
     // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
+  },{
+    //bar??????? maybe replace this with another line graph to demonstrate volume
+    type: 'line',
+    label: 'Regression Analysis',
+    data: parsedData,
+    fill: false,
+    backgroundColor: '#71B37C',
+    borderColor: '#71B37C',
+    hoverBackgroundColor: '#71B37C',
+    hoverBorderColor: '#71B37C',
+    yAxisID: 'y-axis-2'
     }]
-  }
-    // },{
-    // //bar??????? maybe replace this with another line graph to demonstrate volume
-    // type: 'bar',
-    // label: 'Visitor',
-    // data: [200, 185, 590, 621, 250, 400, 95],
-    // fill: false,
-    // backgroundColor: '#71B37C',
-    // borderColor: '#71B37C',
-    // hoverBackgroundColor: '#71B37C',
-    // hoverBorderColor: '#71B37C',
-    // yAxisID: 'y-axis-1'
-    // }]
-    // };
+    };
     
     const options = {
-    responsive: false,
+    responsive: true,
     maintainAspectRatio: false,
     labels: props.labels,
     tooltips: {
@@ -81,45 +86,31 @@ function PricingGraph(props) {
           show: true
         }
       },
-      // {
-      //   type: 'linear',
-      //   display: true,
-      //   position: 'right',
-      //   id: 'y-axis-2',
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   labels: {
-      //     show: true
-      //   }
-      // }
+      {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        id: 'y-axis-2',
+        gridLines: {
+          display: false
+        },
+        labels: {
+          show: true
+        }
+      }
     ]
     }
     };
-    
-    // const plugins = [{
-    // afterDraw: (chartInstance, easing) => {
-    // const ctx = chartInstance.chart.ctx;
-    // ctx.fillText("This text drawn by a plugin", 100, 100);
-    // }
-    // }];
 
     return (
       <div className="graphDiv">
-        <div className="graphHead">
-        <h4 className="graphTitle">{props.title}</h4>
-        <DropdownApp className="dropdownList" />
-        </div>
-        
+        <h2 className="graphTitle">{props.title}</h2>
         <Bar
           data={data}
           options={options}
-          width={1080}
-          height={300}
-          // plugins={plugins}
         />
       </div>
     );
   }
   
-  export default PricingGraph;
+  export default RegressionGraph;
