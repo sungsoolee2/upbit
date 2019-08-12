@@ -9,6 +9,8 @@ const express = require("express");
 const socketio = require("socket.io");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+var request = require("request-promise");
+var cheerio = require("cheerio");
 // Sets up the Express App
 // =============================================================
 const app = express();

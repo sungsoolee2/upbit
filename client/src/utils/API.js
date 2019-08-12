@@ -14,6 +14,9 @@ const API = {
     },
     getSenseDataBTC: () => {
         return axios.get('/api/pricing/senseBTC');
+    },
+    getNews: () => {
+        return axios.get('/api/news');
     }
 }
 export default API;
