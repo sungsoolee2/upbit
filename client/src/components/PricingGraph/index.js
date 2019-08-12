@@ -1,7 +1,12 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import './market.css'
+import DropdownApp from './dropdown/dropdownapp.js'
+
+
 function PricingGraph(props) {
+  
+  console.log()
   // console.log(props);
   const data = {
     //line for the pricing data
@@ -20,8 +25,6 @@ function PricingGraph(props) {
     // pointHoverBackgroundColor: '#EC932F',
     // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
-    
-
     }]
   }
     // },{
@@ -39,7 +42,7 @@ function PricingGraph(props) {
     // };
     
     const options = {
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: false,
     labels: props.labels,
     tooltips: {
@@ -103,11 +106,16 @@ function PricingGraph(props) {
 
     return (
       <div className="graphDiv">
-        <h2 className="graphTitle">Pricing Data for Different Crytocurrencies</h2>
+        <div className="graphHead">
+        <h4 className="graphTitle">{props.title}</h4>
+        <DropdownApp className="dropdownList" />
+        </div>
+        
         <Bar
           data={data}
           options={options}
-
+          width={1080}
+          height={300}
           // plugins={plugins}
         />
       </div>

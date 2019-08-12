@@ -1,7 +1,7 @@
 .pricingContent{
     background-image: url(./b2.jpg);
     background-size: 100% 100%;
-    /* background: #065488; */
+    background: #065488; 
    
     grid-area: b;
     display: grid;
@@ -12,6 +12,10 @@
       "left graph right"
       "bot bot bot";
     color: whitesmoke;
+}
+.graphHead{
+  display: flex;
+  justify-content: space-between;
 }
 .graphTitle{
   color: rgb(179, 179, 179);
@@ -26,3 +30,5 @@
   /* background-image: linear-gradient(to top right, #919191, #d1ebec); */
   grid-area: graph;
 }
+
+

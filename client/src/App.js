@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Pricing from "./pages/Pricing";
+import Analysis from "./pages/Analysis";
+
 import Navigation from './components/Navigation/index';
 import Container from './styles/container.css'
 import Home from "./pages/Home";
@@ -15,6 +17,8 @@ import Signup from './pages/Signup';
 function App() {
   return (
     <Router>
+
+<div>
     <Navigation/>
         <div className="frontContainer" style={Container}>
     
@@ -26,10 +30,10 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} /> 
           <Route path="/logout" component={Logout} />
-
+          <Route path="/analysis" component={Analysis} />
         </Switch>
         </div>
-     
+        </div>
     </Router>
     
   );

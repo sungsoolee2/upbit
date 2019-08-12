@@ -3,6 +3,7 @@
     /* height: 100px; */
     /* background: none; */
     /* background: #010316; */
+    display: block;
     position: fixed;
     width: 100%;
     z-index: 99;
