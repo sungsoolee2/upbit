@@ -15,6 +15,9 @@ const API = {
     getSenseDataBTC: () => {
         return axios.get('/api/pricing/senseBTC');
     },
+    getHistData: (ticker) => {
+        return axios.get('api/historical/getHistData/'+ticker);
+    },
     getNews: () => {
         return axios.get('/api/news');
     }

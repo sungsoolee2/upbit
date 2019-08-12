@@ -11,7 +11,7 @@ module.exports = {
     getNews: (req, res) => {
         console.log("Hit news controller!");
         // First, we grab the body of the html with request
-        var scrapedArticles ={};
+        var scrapedArticles = [];
         request("https://www.coindesk.com/", (error, response, html) => {
 
             // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -43,11 +43,11 @@ module.exports = {
                 result.href = $(this).attr("href");
                 console.log($(this).attr("href"));
 
-                scrapedArticles[i] = result;
-                
+                scrapedArticles.push(result);
+                console.log(scrapedArticles);
             });
 
-        }).then(scrapedArticles => {
+        }).then((data) => {
             return res.json(scrapedArticles);
         });
     }

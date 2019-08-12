@@ -14,7 +14,7 @@ import './navbar.css'
         
                 <span id = "trade" className="homeNav">NEWS</span>
                 <Link style={{ textDecoration: 'none' }} id = "market" className="homeNav" to="/pricing"><span >MARKET</span></Link>
-                <span id = "security" className="homeNav">ANALYSIS</span>
+                <Link style={{ textDecoration: 'none' }} id = "analysis" className="homeNav" to="/analysis"><span >ANALYSIS</span></Link>
                 <span id = "support" className="homeNav">FAQ</span>
         </div>
 
