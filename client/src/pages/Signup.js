@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import isAuthenticated from '../isAuthenticated'
-import '../components/Signup/signup.css'
+import '../components/Signup/signup.scss'
 import Footer from '../components/Signup/footer.js'
 import '../styles/materialize.min.css'
+import '../styles/materialize-src/sass/materialize.scss'
 
 export default class Signup extends Component {
 
@@ -64,15 +65,15 @@ export default class Signup extends Component {
               <input type="password" name="password" pattern=".{6,20}" placeholder="Password" required />
             </div>
             <div className="loginOpt">
-                        <label>
+                        <label className="opt">
                             <input id="indeterminate-checkbox" type="checkbox" />
                             <span>Remember me</span>
                           </label>
-                      <span>Forgot Password?</span>
+                      <span className="opt">Forgot Password?</span>
                      
                   </div>
             <div className="btnDiv">
-            <button className="btn waves-effect waves-light #ffab00 amber accent-4" type="submit" name="action">Register</button>
+            <button className="btn waves-effect waves-light #fbc02d yellow darken-2" type="submit" name="action">Register</button>
               {/* <input type="submit" value="Sign up" /> */}
             </div>
           </form>
