@@ -15,18 +15,18 @@ class News extends Component {
 
         loadNews= () =>{
           API.getNews()
-          .then(news =>
-      this.setState({ news: news})
+          .then(res =>
+      this.setState({ news: res.data})
           )
            .catch(err => console.log(err));
            };
           
     render() {
-      let news= this.state.news
+      let article= this.state.news
       return (
       <div>
         <h1>Home</h1>
-        <p>Todays Top News, {news}.</p>
+        <p>Todays Top News, {article}.</p>
       </div>
     );
   }
