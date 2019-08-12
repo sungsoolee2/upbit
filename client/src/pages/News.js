@@ -5,8 +5,8 @@ import API from '../utils/API';
 console.log("Hit News Page!");
 
 class News extends Component {
- 
-    state = {news: [] }
+
+    state = {news: []}
  
     componentDidMount() {
         console.log(`component did mount news`)
@@ -15,20 +15,29 @@ class News extends Component {
 
         loadNews= () =>{
           API.getNews()
-          .then(res =>
-      this.setState({ news: res.data})
-          )
+          .then(res => {
+            console.log(res.data);
+      this.setState({ news: res.data});
+      console.log(this.state);
+          })
            .catch(err => console.log(err));
            };
           
-    render() {
-      let article= this.state.news
-      return (
-      <div>
-        <h1>Home</h1>
-        <p>Todays Top News, {article}.</p>
-      </div>
-    );
+    
+        render() {
+          return (<div>
+          {this.state.res.data.map(() => (
+            <ul>
+              <li>Title: {res.data.title} </li>
+              <li>Link: {res.data.link} </li>
+              <li>Link: {res.data.link} </li>
+            </ul>
+             
+
+          ))}
+          </div>);
+      }
+      
   }
 }
          
