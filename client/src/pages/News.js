@@ -25,20 +25,21 @@ class News extends Component {
           
     
         render() {
-          return (<div>
-          {this.state.res.data.map(() => (
+          return (
+          <div>
+          {this.state.news.map((data => (
             <ul>
-              <li>Title: {res.data.title} </li>
-              <li>Link: {res.data.link} </li>
-              <li>Link: {res.data.link} </li>
+              <li>Title: {data.title} </li>
+              <li>Link: {data.link} </li>
+              <li>DateTime: {data.datetime} </li>
+              <li>Synop: {data.synop} </li>
+              <li>Href: {data.href} </li>
             </ul>
-             
-
-          ))}
+          )))}
           </div>);
       }
       
   }
-}
+
          
 export default News;

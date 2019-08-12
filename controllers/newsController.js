@@ -44,6 +44,7 @@ module.exports = {
                 console.log($(this).attr("href"));
 
                 scrapedArticles.push(result);
+                console.log(scrapedArticles);
             });
 
         }).then((data) => {
