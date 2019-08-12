@@ -5,6 +5,7 @@ import Navigation from './components/Navigation/index';
 import Container from './styles/container.css'
 import Home from "./pages/Home";
 import PrivateRoute from './PrivateRoute'
+import News from "./pages/News";
 
 /************** PASSPORTS ************/
 import Login from './components/Login';
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           {/* we can have this as the catch-all 404 page */}
           <Route exact path="/" component={Home} />
+          <Route exact path="/news" component={News} />
           <Route exact path="/pricing" component={Pricing} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} /> 
