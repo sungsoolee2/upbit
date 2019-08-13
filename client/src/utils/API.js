@@ -12,9 +12,9 @@ const API = {
     getAllCoinData: () => {
         return axios.get('/api/pricing/allcoindata');
     },
-    getSenseDataBTC: () => {
-        return axios.get('/api/pricing/senseBTC');
-    },
+    // getSenseDataBTC: () => {
+    //     return axios.get('/api/pricing/senseBTC');
+    // },
     getHistData: (ticker) => {
         return axios.get('api/historical/getHistData/'+ticker);
     },
