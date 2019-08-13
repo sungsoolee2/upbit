@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
+
+/** GRAPHS */
 import PricingGraph from "../components/PricingGraph";
+import HistoricalGraph from '../components/HistoricalGraph'
+import RegressionGraph from '../components/RegressionGraph'
+
+////// COMPONENTS
 import { Container, Row, Col } from "../components/Grid";
 import { Input, FormBtn, FormBtnUpdate } from "../components/SimpleForm";
-import API from "../utils/API";
 import "../components/PricingGraph/market.css";
+
+//// API
+import API from "../utils/API";
+
 
 /**
  * Axios call to retrieve data
@@ -18,13 +27,29 @@ import "../components/PricingGraph/market.css";
 
 class Pricing extends Component {
   state = {
-    ticker: "",
+    ticker: "BTC",
     prices: [],
-    labels: []
+    labels: [],
+    datasets: []
   };
 
   /*** RENDERING FUNCTIONS */
-  componentDidMount() {}
+  componentDidMount() {
+    API.getHistData("BTC").then(res => {
+
+      console.log(res);
+      API.parseDataTPV(res).then(res =>{
+        let data = res.data;
+
+        this.setState({
+          prices: data.prices,
+          volume: data.volume,
+          labels: data.time
+        })
+
+      });
+    });
+  }
 
   getHistoricalData = () => {
 
@@ -33,7 +58,7 @@ class Pricing extends Component {
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value.trim()
     });
   };
 
@@ -47,7 +72,7 @@ class Pricing extends Component {
       console.log(this.state.ticker);
       API.getHistData(this.state.ticker).then(res => {
 
-        console.log(res.data);
+        console.log(res);
       });
 
       
@@ -56,15 +81,18 @@ class Pricing extends Component {
 
   render() {
     return (
-      <Container>
-          <div className="pricingContent">
-        <Row>
-          {/* <Col size="md-6"> */}
-
+      // <Container>
+        <div className="pricingContent">               
+         <Row>
+          <HistoricalGraph 
+          labels={this.state.labels} 
+          prices={this.state.prices}
+          volume={this.state.volume} 
+          title={this.state.ticker}/>
+          </Row>
+          <Row>
           <div>
-              
-         
-          <PricingGraph labels={["red", "yellow", "blue"]} prices={[1, 2, 3]} />
+            
           <form className="float-right">
             <Input
               value={this.state.ticker}
@@ -87,9 +115,8 @@ class Pricing extends Component {
             </FormBtnUpdate>
           </form>
           </div>
-        </Row>
-        </div>
-      </Container>
+          </Row>
+          </div>
     );
   }
 }
