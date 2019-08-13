@@ -10,6 +10,7 @@ import RegressionGraph from "../components/RegressionGraph";
 import './styles/analysis.css';
 import { Input, FormBtn, FormBtnUpdate, Dropdown } from "../components/SimpleForm";
 // import Dropdown from '../components/Dropdown';
+
 //// API
 import API from "../utils/API";
 /**
@@ -95,45 +96,45 @@ class Analysis extends Component {
             title={this.state.ticker}
           />
 
-            <div className="searchOptions"> 
-              <Dropdown 
-              list={["", "BTC", "ETH", "ETC", "LTC", "ZRX", "USDC", "BAT", "LINK", "DAI", "ZEC", "XRP", "XLM", "EOS", "XTZ", "EUR", "GBP", "CAD", "JPY"]}
-              onChange={this.handleInputChange}
-              name="ticker"
-              
+          <div className="searchOptions"> 
+            <Dropdown 
+            list={["", "BTC", "ETH", "ETC", "LTC", "ZRX", "USDC", "BAT", "LINK", "DAI", "ZEC", "XRP", "XLM", "EOS", "XTZ", "EUR", "GBP", "CAD", "JPY"]}
+            onChange={this.handleInputChange}
+            name="ticker"
+            
+            />
+            <form>
+              <Input
+                value={this.state.ticker}
+                onChange={this.handleInputChange}
+                name="ticker"
+                placeholder="Ticker (example: BTC)"
               />
-              <form>
-                <Input
-                  value={this.state.ticker}
-                  onChange={this.handleInputChange}
-                  name="ticker"
-                  placeholder="Ticker (example: BTC)"
-                />
-                <Input
-                  value={this.state.ticker}
-                  onChange={this.handleInputChange}
-                  name="fromDate"
-                  placeholder="From Date"
-                />
-                                <Input
-                  value={this.state.ticker}
-                  onChange={this.handleInputChange}
-                  name="toDate"
-                  placeholder="To Page"
-                />
-                <FormBtn
-                  disabled={!this.state.ticker}
-                  onClick={this.handleFormSubmit}
-                >
-                  SUBMIT
-                </FormBtn>
-              </form>
-              <form>
-                <FormBtnUpdate onClick={this.handleFormSubmit}>
-                  UPDATE
-                </FormBtnUpdate>
-              </form>
-            </div>
+              <Input
+                value={this.state.ticker}
+                onChange={this.handleInputChange}
+                name="fromDate"
+                placeholder="From Date"
+              />
+                              <Input
+                value={this.state.ticker}
+                onChange={this.handleInputChange}
+                name="toDate"
+                placeholder="To Page"
+              />
+              <FormBtn
+                disabled={!this.state.ticker}
+                onClick={this.handleFormSubmit}
+              >
+                SUBMIT
+              </FormBtn>
+            </form>
+            <form>
+              <FormBtnUpdate onClick={this.handleFormSubmit}>
+                UPDATE
+              </FormBtnUpdate>
+            </form>
+          </div>
 
 
       </div>
