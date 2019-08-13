@@ -92,7 +92,7 @@ function HistoricalGraph(props) {
 
     return (
       <div className="graphDiv">
-        <h2 className="graphTitle">Pricing Data for Different Crytocurrencies</h2>
+        <h2 className="graphTitle">Historical Data for {props.title}</h2>
         <Bar
           data={data}
           options={options}

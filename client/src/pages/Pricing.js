@@ -53,19 +53,19 @@ class Pricing extends Component {
         historicalBTC: []
     }
 
-    retrieveSenseData = () => {
-        API.getSenseDataBTC().then(res => {
-            console.log(res);
+    // retrieveSenseData = () => {
+    //     API.getSenseDataBTC().then(res => {
+    //         console.log(res);
 
-            //{prices: [], volume: []}
-            this.setState({
-                historicalBTC: res.data
-            })
+    //         //{prices: [], volume: []}
+    //         this.setState({
+    //             historicalBTC: res.data
+    //         })
 
             
-        })
-        .catch(err => console.log(err));
-    }
+    //     })
+    //     .catch(err => console.log(err));
+    // }
     
     retrieveHistoricalData = () => {
         // 2016-01-01T00:00:00-06:00
@@ -135,7 +135,6 @@ class Pricing extends Component {
     componentDidMount() {
         this.retrieveSpotPrices();
         this.retrieveHistoricalData();
-        this.retrieveSenseData();
     }
 
     // render (){
