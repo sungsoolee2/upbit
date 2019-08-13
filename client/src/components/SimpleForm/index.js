@@ -25,3 +25,16 @@ export function FormBtnUpdate(props) {
     </button>
   );
 }
+
+export function Dropdown(props) {
+  let list = props.list;
+  
+  return <div> 
+      <select className="form-control" id="cryptos" onChange={props.onChange} name={props.name}>
+
+      {list.map((item, i) => (
+          <option key={i} value={item}>{item}</option>     
+      ))}
+      </select>
+  </div>;
+}
