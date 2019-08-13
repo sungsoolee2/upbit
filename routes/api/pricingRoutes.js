@@ -10,6 +10,6 @@ router.route("/").get(pricingController.getDummyData);
 router.route("/allcoindata").get(pricingController.getAllCoinData);
 
 
-router.route("/senseBTC").get(pricingController.omenicsDataBTC);
+// router.route("/senseBTC").get(pricingController.omenicsDataBTC);
 
 module.exports = router;
