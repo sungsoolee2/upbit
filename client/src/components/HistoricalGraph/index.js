@@ -1,6 +1,7 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import './style.css'
+import './styles/style.css';
+
 function HistoricalGraph(props) {
   // console.log(props);
   const data = {

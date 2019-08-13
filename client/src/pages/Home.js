@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import '../styles/materialize.min.css'
+import '../components/Landing/landing.css'
+import Footer from '../components/Landing/homefoot.js'
 import API from '../utils/API';
 
 export default class Home extends Component {

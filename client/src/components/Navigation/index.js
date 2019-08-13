@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import './style.css'
 // import isAuthenticated from '../lib/isAuthenticated'
 
  const Navigation = () => (

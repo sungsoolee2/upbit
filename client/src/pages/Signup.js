@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import isAuthenticated from '../isAuthenticated'
-import '../components/Signup/signup.scss'
-import Footer from '../components/Signup/footer.js'
+import './styles/signup.css'
+// import '../components/Signup/signup.scss'
+import Logfooter from '../components/Signup/footer.js'
 import '../styles/materialize.min.css'
 import '../styles/materialize-src/sass/materialize.scss'
 
@@ -79,7 +80,7 @@ export default class Signup extends Component {
           </form>
           </div>
         </div>
-        <Footer />
+        <Logfooter />
         </div>
         
        
