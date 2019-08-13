@@ -1,0 +1,29 @@
+.logfooter{
+    /* background: rgba(245, 245, 245, 0.788); */
+    grid-area: bot;
+    /* height: 75px; */
+    display: flex;
+    justify-content: flexend;
+    flex-direction: column;
+    /* background: #0f0a5a; */
+    /* background-image: linear-gradient(to top right, #a0a0a0, #ffffff); */
+    /* background-image: linear-gradient(to top right, #063317, #097238); */
+    color: rgb(119, 119, 119);
+    font-family: "Rajdhani", sans-serif;
+    text-align: center;
+}
+#copy{
+    font-weight: bolder;
+    color: rgb(131, 131, 131);
+}
+.sclbtn{
+    margin: 5px 5px 0px 5px;
+  }
+.sclbtn:hover{
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    cursor: pointer;
+    filter: brightness(400%)
+}

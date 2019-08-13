@@ -5,11 +5,11 @@ import moment from "moment";
 import PricingGraph from "../components/PricingGraph";
 import HistoricalGraph from "../components/HistoricalGraph";
 import RegressionGraph from "../components/RegressionGraph";
+
 ////// COMPONENTS
-import { Container, Row, Col } from "../components/Grid";
+import './styles/analysis.css';
 import { Input, FormBtn, FormBtnUpdate, Dropdown } from "../components/SimpleForm";
 // import Dropdown from '../components/Dropdown';
-import "../components/PricingGraph/market.css";
 //// API
 import API from "../utils/API";
 /**
@@ -19,6 +19,7 @@ import API from "../utils/API";
  *
  *
  */
+
 // let historicalData = () => {
 class Analysis extends Component {
   state = {
@@ -85,16 +86,16 @@ class Analysis extends Component {
   render() {
     return (
       // <Container>
-      <div className="pricingContent">
-        <Row>
+      <div className="analysisContent">
+     
           <HistoricalGraph
             labels={this.state.labels}
             prices={this.state.prices}
             volume={this.state.volume}
             title={this.state.ticker}
           />
-          <Row>
-            <div>
+
+            <div className="searchOptions"> 
               <Dropdown 
               list={["", "BTC", "ETH", "ETC", "LTC", "ZRX", "USDC", "BAT", "LINK", "DAI", "ZEC", "XRP", "XLM", "EOS", "XTZ", "EUR", "GBP", "CAD", "JPY"]}
               onChange={this.handleInputChange}
@@ -133,8 +134,8 @@ class Analysis extends Component {
                 </FormBtnUpdate>
               </form>
             </div>
-          </Row>
-        </Row>
+
+
       </div>
     );
   }
