@@ -67,7 +67,7 @@ export default class Signup extends Component {
             <div className="loginOpt">
                         <label className="opt">
                             <input id="indeterminate-checkbox" type="checkbox" />
-                            <span>Remember me</span>
+                            <span>Remember me now</span>
                           </label>
                       <span className="opt">Forgot Password?</span>
                      
