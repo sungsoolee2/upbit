@@ -20,6 +20,9 @@ const API = {
     },
     getNews: () => {
         return axios.get('/api/news');
+    },
+    parseDataTPV: (parseData) => {
+        return axios.post('api/historical/parseDataTPV', parseData);
     }
 }
 export default API;
