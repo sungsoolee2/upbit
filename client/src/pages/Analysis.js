@@ -7,7 +7,8 @@ import HistoricalGraph from "../components/HistoricalGraph";
 import RegressionGraph from "../components/RegressionGraph";
 ////// COMPONENTS
 import { Container, Row, Col } from "../components/Grid";
-import { Input, FormBtn, FormBtnUpdate } from "../components/SimpleForm";
+import { Input, FormBtn, FormBtnUpdate, Dropdown } from "../components/SimpleForm";
+// import Dropdown from '../components/Dropdown';
 import "../components/PricingGraph/market.css";
 //// API
 import API from "../utils/API";
@@ -21,7 +22,8 @@ import API from "../utils/API";
 // let historicalData = () => {
 class Analysis extends Component {
   state = {
-    ticker: "BTC",
+    ticker: "",
+    tickerDropdown: "",
     prices: [],
     labels: [],
     datasets: []
@@ -41,12 +43,33 @@ class Analysis extends Component {
     });
   }
   getHistoricalData = () => {};
+
   handleInputChange = event => {
     const { name, value } = event.target;
+    console.log(event.target.value);
     this.setState({
       [name]: value.trim()
     });
   };
+
+  handleClicked = item => {
+    
+    if(item != ""){
+      API.getHistData(item).then(res => {
+        console.log(res);
+        API.parseDataTPV(res).then(res => {
+          let data = res.data;
+          this.setState({
+            prices: data.prices,
+            volume: data.volume,
+            labels: data.time,
+            ticker: item
+          });
+        });
+      });
+    }
+
+  }
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.ticker) {
@@ -72,6 +95,12 @@ class Analysis extends Component {
           />
           <Row>
             <div>
+              <Dropdown 
+              list={["", "BTC", "ETH", "ETC", "LTC", "ZRX", "USDC", "BAT", "LINK", "DAI", "ZEC", "XRP", "XLM", "EOS", "XTZ", "EUR", "GBP", "CAD", "JPY"]}
+              onChange={this.handleInputChange}
+              name="ticker"
+              
+              />
               <form>
                 <Input
                   value={this.state.ticker}
