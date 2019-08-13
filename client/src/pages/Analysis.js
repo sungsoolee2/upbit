@@ -108,6 +108,18 @@ class Analysis extends Component {
                   name="ticker"
                   placeholder="Ticker (example: BTC)"
                 />
+                <Input
+                  value={this.state.ticker}
+                  onChange={this.handleInputChange}
+                  name="fromDate"
+                  placeholder="From Date"
+                />
+                                <Input
+                  value={this.state.ticker}
+                  onChange={this.handleInputChange}
+                  name="toDate"
+                  placeholder="To Page"
+                />
                 <FormBtn
                   disabled={!this.state.ticker}
                   onClick={this.handleFormSubmit}
