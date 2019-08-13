@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import isAuthenticated from '../../isAuthenticated'
 import '../../styles/materialize.min.css'
-import Footer from './footer.js'
+import Logfooter from './footer.js'
 import './login.scss'
 
 export default class Login extends Component {
@@ -81,7 +81,7 @@ export default class Login extends Component {
           </form>
             </div>
           </div>
-          <Footer />  
+          <Logfooter />  
         </div>
       )
     }
