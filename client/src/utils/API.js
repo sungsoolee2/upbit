@@ -32,6 +32,10 @@ const API = {
     },
     parseDataTPV: (parseData) => {
         return axios.post('api/historical/parseDataTPV', parseData);
+    },
+    getExactDateHist: (query) => {
+        console.log(query);
+        return axios.get("api/historical/getExactDateHist/"+query)
     }
 }
 export default API;

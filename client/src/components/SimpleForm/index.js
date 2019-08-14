@@ -4,7 +4,7 @@ import './style.css'
 
 export function Input(props) {
   return (
-    <div className="form-group">
+    <div className="form-group form-input">
       <input className="form-control" {...props} />
     </div>
   );
@@ -26,11 +26,11 @@ export function FormBtnUpdate(props) {
   );
 }
 
-export function Dropdown(props) {
+export function DropdownC(props) {
   let list = props.list;
   
   return <div> 
-      <select className="form-control" id="cryptos" onChange={props.onChange} name={props.name}>
+      <select className="form-control" onChange={props.onChange} name={props.name}>
 
       {list.map((item, i) => (
           <option key={i} value={item}>{item}</option>     
