@@ -27,8 +27,8 @@ function HistoricalGraph(props) {
     label: 'Volume',
     data: props.volume,
     fill: false,
-    backgroundColor: '#71B37C',
-    borderColor: '#71B37C',
+    backgroundColor: '#818181',
+    borderColor: '#818181',
     hoverBackgroundColor: '#71B37C',
     hoverBorderColor: '#71B37C',
     yAxisID: 'y-axis-2'
@@ -37,7 +37,7 @@ function HistoricalGraph(props) {
     
     const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     labels: props.labels,
     tooltips: {
     mode: 'label'
@@ -94,10 +94,13 @@ function HistoricalGraph(props) {
     return (
       <div className="graphDiv">
         <h2 className="graphTitle">Historical Data for {props.title}</h2>
-        <Bar
+        <div>
+  <Bar
           data={data}
           options={options}
         />
+        </div>
+      
       </div>
     );
   }

@@ -18,11 +18,12 @@ import './style.css'
         </div>
 
         <div className="loginDiv">
-              <span id = "about" className="homeAuth">ABOUT</span>
+                 <Link style={{ textDecoration: 'none' }} to="/login"><span id = "login" className="homeAuth">LOGIN</span></Link>
               <span>|</span>
-              <Link style={{ textDecoration: 'none' }} to="/login"><span id = "login" className="homeAuth">LOGIN</span></Link>
+              <Link style={{ textDecoration: 'none' }} to="/logout"><span id = "logout" className="homeAuth">LOGOUT</span></Link>
+              
               <span>|</span>
-              <Link style={{ textDecoration: 'none' }} to="/signup"><span id = "login" className="homeAuth">SIGNUP</span></Link>
+              <Link style={{ textDecoration: 'none' }} to="/signup"><span id = "signup" className="homeAuth">SIGNUP</span></Link>
           </div>
     </div>
 )

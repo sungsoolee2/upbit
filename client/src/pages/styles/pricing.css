@@ -1,7 +1,8 @@
 .pricingContent{
     background-image: url(./images/b21.png);
     background-size: 100% 100%;
-    background: #065488; 
+    height: 100vh;
+    /* background: #065488;  */
     grid-area: b;
     display: grid;
     grid-template-columns: 100px 1fr 100px;

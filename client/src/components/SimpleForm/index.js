@@ -12,7 +12,7 @@ export function Input(props) {
 
 export function FormBtn(props) {
   return (
-    <button {...props} style={{ float: "right", marginBottom: 10, marginRight: 10}} className="btn btn-primary formBtn">
+    <button {...props} style={{ float: "right", marginBottom: 10, marginRight: 10}} className="btn btn-primary formBtn yellow darken-2">
       {props.children}
     </button>
   );
@@ -30,7 +30,7 @@ export function DropdownC(props) {
   let list = props.list;
   
   return <div> 
-      <select className="form-control" onChange={props.onChange} name={props.name}>
+      <select className="form-control yellow darken-2" onChange={props.onChange} name={props.name}>
 
       {list.map((item, i) => (
           <option key={i} value={item}>{item}</option>     

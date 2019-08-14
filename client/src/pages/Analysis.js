@@ -219,9 +219,9 @@ class Analysis extends Component {
             </FormBtn>
           </form>
           <form>
-            <FormBtnUpdate onClick={this.handleFormSubmit}>
+            {/* <FormBtnUpdate onClick={this.handleFormSubmit}>
               UPDATE
-            </FormBtnUpdate>
+            </FormBtnUpdate> */}
 
           </form>
         </div>

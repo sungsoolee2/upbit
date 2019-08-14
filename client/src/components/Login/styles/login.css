@@ -2,7 +2,8 @@
     background-image: url(./images/b21.png);
     background-size: 100% 100%;
     /* background: #065488; */
-    grid-area: b;
+    /* grid-area: b; */
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 150px 1fr auto;
