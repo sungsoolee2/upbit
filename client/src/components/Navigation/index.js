@@ -11,7 +11,7 @@ import './style.css'
 
         <div className="homeMenu">
         
-                <span id = "trade" className="homeNav">NEWS</span>
+                <Link style={{ textDecoration: 'none' }} id = "trade" className="homeNav" to="/news"><span >NEWS</span></Link>
                 <Link style={{ textDecoration: 'none' }} id = "market" className="homeNav" to="/pricing"><span >MARKET</span></Link>
                 <Link style={{ textDecoration: 'none' }} id = "analysis" className="homeNav" to="/analysis"><span >ANALYSIS</span></Link>
                 <span id = "support" className="homeNav">FAQ</span>
