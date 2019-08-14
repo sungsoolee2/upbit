@@ -3,7 +3,8 @@ import axios from 'axios';
 import moment from 'moment';
 import PricingGraph from '../components/PricingGraph'
 import {Container, Row, Col} from '../components/Grid'
-import '../components/PricingGraph/market.css'
+import './styles/pricing.css'
+// import '../components/PricingGraph/style.css'
 import HistoricalGraph from '../components/HistoricalGraph'
 import RegressionGraph from '../components/RegressionGraph'
 import API from '../utils/API';
@@ -166,8 +167,6 @@ class Pricing extends Component {
                         prices= {this.state.noOutliersprices} 
                         title= {"Pricing Data for Different Crytocurrencies"} 
                     />
-
-
                 </div>
                 );
                                     {/* <HistoricalGraph

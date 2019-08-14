@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import isAuthenticated from '../../isAuthenticated'
+import '../../styles/materialize.min.css'
+import Logfooter from './footer.js'
+import './styles/login.css'
 
 export default class Login extends Component {
   
@@ -50,21 +53,35 @@ export default class Login extends Component {
       )
     } else {
       return (
-        <div>
-          <h1>Login</h1>
-          <form onSubmit={this.submit.bind(this)}>
-            <div>
-              <label>Username: </label>
-              <input type="text" name="username" pattern=".{2,16}" required />
+        <div className="loginWrap">
+          <div className="loginContent">
+            <div className="loginpageDiv">
+            <h4>Login to your upBit account</h4>
+            <form className="formFillup" onSubmit={this.submit.bind(this)}>
+            <div className="input-field fillinfo">
+              <i className="material-icons prefix">account_circle</i>
+              <input type="text" name="username" pattern=".{2,16}" placeholder="Email" required />
             </div>
-            <div>
-              <label>Password: </label>
-              <input type="password" name="password" pattern=".{6,20}" required />
+            <div className="input-field fillinfo">
+            <i className="material-icons prefix">fingerprint</i>
+              <input type="password" name="password" pattern=".{6,20}" placeholder="Password" required />
             </div>
-            <div>
-              <input type="submit" value="Log in" />
+            <div className="loginOpt">
+                        <label className="opt">
+                            <input id="indeterminate-checkbox" type="checkbox" />
+                            <span>Remember me</span>
+                          </label>
+                      <span className="opt">Forgot Password?</span>
+                     
+                  </div>
+            <div className="btnDiv">
+            <button className="btn waves-effect waves-light #fbc02d yellow darken-2" type="submit" name="action">Log in</button>
+              {/* <input type="submit" value="Log in" /> */}
             </div>
           </form>
+            </div>
+          </div>
+          <Logfooter />  
         </div>
       )
     }

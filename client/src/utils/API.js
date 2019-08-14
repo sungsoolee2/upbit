@@ -21,6 +21,15 @@ const API = {
     getNews: () => {
         return axios.get('/api/news');
     },
+    getUser: () => {
+        return axios.get('api/user');
+
+        // {
+        //     headers: {
+        //       Authorization: 'Bearer ' + localStorage.getItem('token')
+        //     }
+        // })
+    },
     parseDataTPV: (parseData) => {
         return axios.post('api/historical/parseDataTPV', parseData);
     }
