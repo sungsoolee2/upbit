@@ -1,5 +1,5 @@
 .pricingContent{
-    background-image: url(./images/b21.png);
+    background-image: url(./images/b2.jpg);
     background-size: 100% 100%;
     height: 100vh;
     /* background: #065488;  */
@@ -10,6 +10,6 @@
     grid-template-areas:
       "left graph right"
       "left graph right"
-      "mnu graph mnus";
+      "mnu mnu mnu";
     color: whitesmoke;
 }
