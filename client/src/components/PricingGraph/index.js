@@ -106,7 +106,7 @@ function PricingGraph(props) {
 
     return (
       <div className="graphDiv">
-        <div className="graphHead">
+        <div className="graphHeader">
         <h4 className="graphTitle">{props.title}</h4>
         <DropdownApp className="dropdownList" />
         </div>
