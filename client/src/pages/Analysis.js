@@ -109,13 +109,13 @@ class Analysis extends Component {
                   placeholder="Ticker (example: BTC)"
                 />
                 <Input
-                  value={this.state.ticker}
+                  value={this.state.fromDate}
                   onChange={this.handleInputChange}
                   name="fromDate"
                   placeholder="From Date"
                 />
                                 <Input
-                  value={this.state.ticker}
+                  value={this.state.toDate}
                   onChange={this.handleInputChange}
                   name="toDate"
                   placeholder="To Page"
