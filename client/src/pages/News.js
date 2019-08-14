@@ -3,7 +3,7 @@ import isAuthenticated from '../isAuthenticated';
 import API from '../utils/API';
 import './styles/news.css'
 import Mainfooter from '../components/Footer/footer'
-
+import moment from 'moment';
 console.log("Hit News Page!");
 
 class News extends Component {
@@ -43,9 +43,11 @@ class News extends Component {
 
                 <div className="newsText">
                 <li className="newsTitle"><h5>{data.title} </h5></li>
-                <li>{data.datetime} </li>
+                <li>{moment(data.datetime).format("YYYY-MM-DD HH:mm")} </li>
                 <br></br>
                 <li>{data.synop} </li>
+                <a href={data.href}>View Full Article</a>
+
                 </div>
                 </ul>
               )))}

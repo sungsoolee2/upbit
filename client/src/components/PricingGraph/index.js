@@ -118,9 +118,9 @@ function PricingGraph(props) {
           height={300}
           // plugins={plugins}
         /> 
-        <div>
+        {/* <div>
           <span>{props.labels}</span>
-        </div>
+        </div> */}
       </div>
     );
   }
