@@ -43,7 +43,7 @@ function PricingGraph(props) {
     
     const options = {
     responsive: false,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     labels: props.labels,
     tooltips: {
     mode: 'label'
@@ -116,11 +116,7 @@ function PricingGraph(props) {
           options={options}
           width={1080}
           height={300}
-          // plugins={plugins}
         /> 
-        <div>
-          <span>{props.labels}</span>
-        </div>
       </div>
     );
   }
