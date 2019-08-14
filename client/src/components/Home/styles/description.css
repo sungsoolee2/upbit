@@ -1,0 +1,12 @@
+.description{
+    padding: 100px 0px 100px 0px;
+    color: ghostwhite;
+    background:  #030a22;
+    text-align: left;
+    background-image: url(./images/phone.jpg);
+    /* background-size: 100% 100%; */
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-left: 50px;
+}

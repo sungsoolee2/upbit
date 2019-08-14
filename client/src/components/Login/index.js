@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import isAuthenticated from '../../isAuthenticated'
 import '../../styles/materialize.min.css'
-import Logfooter from './footer.js'
+import Logfooter from '../Footer/logfooter'
 import './styles/login.css'
 
 export default class Login extends Component {

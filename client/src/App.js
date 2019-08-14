@@ -18,10 +18,8 @@ function App() {
   return (
     <Router>
 
-<div>
+<div style={Container}>
     <Navigation/>
-        <div className="frontContainer" style={Container}>
-    
         <Switch>
           {/* we can have this as the catch-all 404 page */}
           <Route exact path="/" component={Home} />
@@ -32,7 +30,6 @@ function App() {
           <Route path="/logout" component={Logout} />
           <Route path="/analysis" component={Analysis} />
         </Switch>
-        </div>
         </div>
     </Router>
     

@@ -1,0 +1,49 @@
+.homeContent{
+    margin-top: 57px;
+    /* background: ghostwhite; */
+     background: #ffffff;
+}
+.greetDiv{
+    background: #030122;
+    /* background-image: linear-gradient(to top, #000010, #010146); */
+    /* background-image: url(./images/b21.png); */
+    background-image: url(./images/flowers1.jpg);
+    /* background-size: 100% 100%; */
+    background-size: 100% 30%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    /* border-bottom: solid  */
+}
+.greetSpan{
+    margin-top: 3%;
+    color: rgb(182, 179, 179);
+    text-align: center;
+}
+.greetNav{
+    display: flex;
+    flex-direction: column;
+}
+.greetOpt:hover{
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    color: rgb(0, 255, 255);
+}
+.snippet{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0px 50px 0px;
+}
+.news{
+    margin-right: 20px;
+    width: 100%;
+    border: #000010 solid 3px;
+    margin-left: 20px;
+    height: 500px;
+    overflow: scroll;
+}

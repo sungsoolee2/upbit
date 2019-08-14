@@ -1,7 +1,7 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import regression from 'regression';
-import './style.css'
+// import './style.css'
 import { parse } from 'querystring';
 function RegressionGraph(props) {
   // console.log(props);
