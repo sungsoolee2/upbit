@@ -40,7 +40,7 @@ class HomeNews extends Component {
                 <li>{moment(data.datetime).format("YYYY-MM-DD HH:mm")} </li>
                 <br></br>
                 <li>{data.synop} </li>
-                <a href={data.href}>View Full Article</a>
+                <a href={data.href} target="_blank">View Full Article</a>
 
                 </div>
             </ul>
