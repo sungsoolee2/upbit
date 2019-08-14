@@ -8,7 +8,7 @@ import './styles/pricing.css'
 import HistoricalGraph from '../components/HistoricalGraph'
 import RegressionGraph from '../components/RegressionGraph'
 import API from '../utils/API';
-
+import Dropdown from '../components/Dropdown'
 /**
  * Axios call to retrieve data 
  * Nested axios call, maybe coinbase updates their api to add currencies so we
@@ -162,6 +162,7 @@ class Pricing extends Component {
         return (
             // <div>
                 <div className="pricingContent">
+
                     <PricingGraph
                         labels= {this.state.noOutlierslabels}
                         prices= {this.state.noOutliersprices} 
