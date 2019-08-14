@@ -1,10 +1,10 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-// import './styles/style.css'
-import DropdownApp from './dropdown/dropdownapp.js'
+import './styles/style.css'
+// import DropdownApp from './dropdown/dropdownapp.js'
 
 
-function PricingGraph(props) {
+function Pricetable(props) {
   
   console.log()
   // console.log(props);
@@ -81,48 +81,34 @@ function PricingGraph(props) {
           show: true
         }
       },
-      // {
-      //   type: 'linear',
-      //   display: true,
-      //   position: 'right',
-      //   id: 'y-axis-2',
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   labels: {
-      //     show: true
-      //   }
-      // }
     ]
     }
     };
-    
-    // const plugins = [{
-    // afterDraw: (chartInstance, easing) => {
-    // const ctx = chartInstance.chart.ctx;
-    // ctx.fillText("This text drawn by a plugin", 100, 100);
-    // }
-    // }];
-
     return (
-      <div className="graphDiv">
-        <div className="graphHead">
-        <h4 className="graphTitle">{props.title}</h4>
-        <DropdownApp className="dropdownList" />
-        </div>
-        
-        <Bar
-          data={data}
-          options={options}
-          width={1080}
-          height={300}
-          // plugins={plugins}
-        /> 
         <div>
-          <span>{props.labels}</span>
+            <div className="table">
+                <div className="column coin">
+                    <span className="columnTitle">Asset</span>
+                    {props.labels.map(((data,i) => (
+                        <ul key={i}>
+                        <li>{data} </li>
+                        <hr align="center" width="100%"></hr>
+                        </ul>
+                    )))}
+                </div>
+                <div className="column price">
+                    <span className="columnTitle">Spot price</span>
+                    {props.prices.map(((data, i) => (
+                        <ul key={i}>
+                        <li>{data} </li>
+                        <hr align="center" width="100%"></hr>
+                        </ul>
+                    )))}
+                </div>
+            </div>
+         
         </div>
-      </div>
     );
   }
   
-  export default PricingGraph;
+  export default Pricetable;

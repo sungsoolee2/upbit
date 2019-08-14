@@ -1,0 +1,24 @@
+.news{
+    /* background: #030122; */
+    background: ghostwhite;
+    padding: 0px 20px 20px 20px;
+    /* color: ghostwhite; */
+}
+.homenewsList{
+    
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: solid rgb(63, 63, 63) 1px;
+    display: flex;
+}
+.homenewsText{
+    margin-left: 20px;
+}
+.homenewsGreet{
+    /* background: gray; */
+    background: #3e3e44;
+    /* background:  #081642; */
+    color: ghostwhite;
+    padding: 20px;
+    /* color: rgb(9, 199, 224); */
+}

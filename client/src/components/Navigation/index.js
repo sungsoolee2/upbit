@@ -6,7 +6,6 @@ import './style.css'
  const Navigation = () => (
     <div className="navBar">
     <div className="logoDiv">
-    {/* <img id="navLogo" src="./assets/images/upbit.png" alt="logo" /> */}
         <Link  to="/"><img id="navLogo" src="./assets/images/upbit.png" alt="logo" /></Link>
         </div>
 
@@ -25,19 +24,7 @@ import './style.css'
               <span>|</span>
               <Link style={{ textDecoration: 'none' }} to="/signup"><span id = "login" className="homeAuth">SIGNUP</span></Link>
           </div>
-
-
-
-  </div>
+    </div>
 )
 
 export default Navigation;
-
-
-    /* <ul style={{display: 'flex',listStyle: 'none'}}>
-      <li style={{margin: '0 1em'}}><Link to="/">Home</Link></li>
-      <li style={{margin: '0 1em'}}><Link to="/signup">Signup</Link></li>
-      <li style={{margin: '0 1em'}}><Link to="/login">Login</Link></li>
-      <li style={{margin: '0 1em'}}><Link to="/logout">Logout</Link></li>
-      <li style={{margin: '0 1em'}}><Link to="/pricing">Pricing</Link></li>
-    </ul> */

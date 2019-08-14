@@ -1,8 +1,8 @@
 import React from 'react'
-import './styles/footer.css'
+import './styles/mainfooter.css'
 
-const Logfooter = () => (
-    <div className="logfooter">
+const Mainfooter = () => (
+    <div className="footer">
     <div className="social">
         <img
           className="sclbtn"
@@ -33,8 +33,8 @@ const Logfooter = () => (
         height="30"
       />
       </div>
-      <span id="copy">&copy; 2019 upBit.com, All rights reserved.</span>
+      <span>&copy 2019 Advance Investments, All rights reserved.</span>
   </div>
 )
 
-export default Logfooter;
+export default Mainfooter;

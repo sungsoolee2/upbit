@@ -1,0 +1,18 @@
+.table{
+    background: #26262b;
+    border: solid 1px rgb(68, 68, 68);
+    display: flex;
+    width: 150px;
+    color: whitesmoke;
+    height: 500px;
+    overflow: scroll;
+    padding-top: 10px;
+}
+.column{
+    margin: 0px 5px 0px 5px;
+}
+.columnTitle{
+    color: rgb(9, 199, 224);
+    /* font-weight: bold; */
+    margin-bottom: 20px;
+}

@@ -1,19 +1,12 @@
-.logfooter{
-    /* background: rgba(245, 245, 245, 0.788); */
-    grid-area: bot;
-    /* height: 75px; */
-    display: flex;
-    justify-content: flexend;
-    flex-direction: column;
-    /* background: #0f0a5a; */
-    /* background-image: linear-gradient(to top right, #a0a0a0, #ffffff); */
+.footer{
+    height: 75px;
+    background: #05013a;
+    /* background-image: linear-gradient(to bottom right, #091f4e, #0b2b6e); */
     /* background-image: linear-gradient(to top right, #063317, #097238); */
     color: rgb(160, 160, 160);
     font-family: "Rajdhani", sans-serif;
+    padding: 5px;
     text-align: center;
-}
-#copy{
-    font-weight: bolder;
 }
 .sclbtn{
     margin: 5px 5px 0px 5px;

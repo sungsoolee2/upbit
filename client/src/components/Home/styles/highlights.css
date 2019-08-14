@@ -1,0 +1,28 @@
+.highlights{
+    /* background: rgba(245, 245, 245, 0.767); */
+    background: rgb(255, 255, 255);
+    grid-area: d;
+    /* display: flex; */
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    padding: 50px;
+    color: rgb(88, 127, 143);
+    font-family: "Rajdhani", sans-serif;
+}
+.emblem{
+    background: #818181;
+}
+.infoimg{
+    height: 120px;
+    width: 120px;
+}
+.infohead{
+    font-weight: bold;
+}
+.textinfo{
+    font-size: 130%;
+}
+.info{
+    margin: 0px 15px 0px 15px;
+}
