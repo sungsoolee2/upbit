@@ -21,7 +21,7 @@ module.exports = {
         let volume = [];
         let time = [];
 
-        for(let i = 0; i < data.length; i++){
+        for(let i = data.length - 1; i >= 0 ; i--){
             
             prices.push(data[i].price_usd);
             volume.push(data[i].volume_usd);
@@ -102,11 +102,21 @@ module.exports = {
         let fromDate = req.params.fromDate;
         let toDate = req.params.toDate;
 
-        console.log(req.params.ticker); //this should be the ticker
-
+        // console.log(req.params.ticker); //this should be the ticker
+        console.log("THE FROM DATE ", fromDate);
         let currentDate = "";
 
-        axios.get("https://omenics.com/api/v1/"+ticker+"/"+fromDate+"/"+toDate, { headers: { Authorization: 'Bearer '.concat(authOMC)}}).then(coindata => {
+        let query = "";
+
+        if(fromDate){
+            query+= "/"+fromDate;
+        }
+
+        if(toDate){
+           query+="/"+toDate;
+        }
+
+        axios.get("https://omenics.com/api/v1/"+ticker+query, { headers: { Authorization: 'Bearer '.concat(authOMC)}}).then(coindata => {
             let data = Object.entries(coindata.data);
 
             let parsedData = [];

@@ -7,4 +7,7 @@ router.route("/getHistData/:ticker").get(historicalController.getOmenicsDataTick
 
 
 router.route("/parseDataTPV").post(historicalController.parseDataTPV);
+
+router.route("/getExactDateHist/:ticker/:fromDate/:toDate").get(historicalController.getOmenicsDateTicker);
+router.route("/getExactDateHist/:ticker/:fromDate").get(historicalController.getOmenicsDateTicker);
 module.exports = router;
