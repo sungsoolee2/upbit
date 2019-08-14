@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import isAuthenticated from '../isAuthenticated';
 import './styles/homenews.css'
 import API from '../utils/API';
-
+import moment from 'moment';
 console.log("Hit News Page!");
 
 class HomeNews extends Component {
@@ -37,9 +37,11 @@ class HomeNews extends Component {
 
                 <div className="homenewsText">
                 <li className="homenewsTitle"><h5>{data.title} </h5></li>
-                <li>{data.datetime} </li>
+                <li>{moment(data.datetime).format("YYYY-MM-DD HH:mm")} </li>
                 <br></br>
                 <li>{data.synop} </li>
+                <a href={data.href}>View Full Article</a>
+
                 </div>
             </ul>
           )))}
