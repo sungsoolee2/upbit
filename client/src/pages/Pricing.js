@@ -1,184 +1,162 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import moment from 'moment';
-import PricingGraph from '../components/PricingGraph'
-import {Container, Row, Col} from '../components/Grid'
-import './styles/pricing.css'
+import axios from "axios";
+import moment from "moment";
+import PricingGraph from "../components/PricingGraph";
+import { Container, Row, Col } from "../components/Grid";
+import "./styles/pricing.css";
 // import '../components/PricingGraph/style.css'
-import HistoricalGraph from '../components/HistoricalGraph'
-import RegressionGraph from '../components/RegressionGraph'
-import API from '../utils/API';
+import HistoricalGraph from "../components/HistoricalGraph";
+import RegressionGraph from "../components/RegressionGraph";
+import API from "../utils/API";
+import {
+  Input,
+  FormBtn,
+  FormBtnUpdate,
+  DropdownC
+} from "../components/SimpleForm";
 import Dropdown from '../components/Dropdown'
+
 /**
- * Axios call to retrieve data 
+ * Axios call to retrieve data
  * Nested axios call, maybe coinbase updates their api to add currencies so we
  * Retrieve it from the initial spot prices
- * 
- * 
+ *
+ *
  */
 // let historicalData = () => {
 
 // }
-let filterOutliers = (someArray) => {
 
-    if(someArray.length < 4)
-      return someArray;
-  
-    let values, q1, q3, iqr, maxValue, minValue;
-  
-    values = someArray.slice().sort( (a, b) => a - b);//copy array fast and sort
-  
-    if((values.length / 4) % 1 === 0){//find quartiles
-      q1 = 1/2 * (values[(values.length / 4)] + values[(values.length / 4) + 1]);
-      q3 = 1/2 * (values[(values.length * (3 / 4))] + values[(values.length * (3 / 4)) + 1]);
-    } else {
-      q1 = values[Math.floor(values.length / 4 + 1)];
-      q3 = values[Math.ceil(values.length * (3 / 4) + 1)];
-    }
-  
-    iqr = q3 - q1;
-    maxValue = q3 + iqr * 1.5;
-    minValue = q1 - iqr * 1.5;
-  
-    return values.filter((x) => (x >= minValue) && (x <= maxValue));
-  }
+const GRAPHS = ["Unfiltered", "Filtered"];
 
 class Pricing extends Component {
-    state = {
-        icon:[],
-        labels: [],
-        prices: [],
-        noOutliersprices: [],
-        noOutlierslabels: [],
-        allSpotPrices: [],
-        historicalBTC: []
+  state = {
+    icon: [],
+    labels: [],
+    prices: [],
+    noOutliersprices: [],
+    noOutlierslabels: [],
+    allSpotPrices: [],
+    historicalBTC: [],
+    graphState: GRAPHS[0]
+  };
+
+  retrieveSpotPrices = () => {
+    // axios.get(`https://api.coinbase.com/v2/prices/USD/spot`)
+    console.log("hey");
+    API.getAllCoinData().then(res => {
+      console.log("Data here ", res.data.data);
+      let data = res.data.data;
+      let icon = {};
+      let labels = [];
+      let prices = [];
+      let coins = [];
+      // console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        console.log("Looking...");
+        labels.push(data[i].base);
+        prices.push(parseFloat(data[i].amount));
+        coins.push({ label: data[i].base, price: data[i].amount });
+        console.log(data[i].base);
+      }
+      // console.log(coins);
+
+      // console.log(this.state.allSpotPrices);
+
+      let filterArray = [];
+      let maxValue = parseFloat(coins[0].price);
+      let maxCoin = coins[0];
+      for (const price in coins) {
+        if (price > maxValue) {
+          maxValue = price;
+        }
+      }
+
+      for (let i = 1; i < coins.length; i++) {
+        if (parseFloat(coins[i].price) > maxValue) {
+          maxValue = parseFloat(coins[i].price);
+          filterArray.push(coins[maxCoin]);
+        } else if (
+          coins[i].label !== "JPY" &&
+          coins[i].label !== "GBP" &&
+          coins[i].label !== "CAD" &&
+          coins[i].label !== "EUR"
+        ) {
+          filterArray.push(coins[i]);
+        }
+      }
+      // let result = coins.map(({ label }) => label) //this works
+      // console.log("Labels: "+result);
+      //   let filtered = prices.filter(function (str) { return str.includes(PATTERN); });
+
+      this.setState({
+        prices: prices,
+        labels: labels,
+        allSpotPrices: coins,
+        noOutlierslabels: filterArray.map(({ label }) => label),
+        noOutliersprices: filterArray.map(({ price }) => price)
+      });
+      //   console.log("prices "+this.state.noOutliersprices);
+    });
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    console.log(event.target.value);
+    if(value !== "List of Cryptocurrencies")
+    {
+      this.setState({
+        [name]: value.trim()
+      });
+      console.log(this.state.fromDate);
     }
 
-    // retrieveSenseData = () => {
-    //     API.getSenseDataBTC().then(res => {
-    //         console.log(res);
+  };
 
-    //         //{prices: [], volume: []}
-    //         this.setState({
-    //             historicalBTC: res.data
-    //         })
-
-            
-    //     })
-    //     .catch(err => console.log(err));
-    // }
-    
-    retrieveHistoricalData = () => {
-        // 2016-01-01T00:00:00-06:00
-
-        API.getHistoricalData().then(res => {
-            // console.log(res.data);
-        })
-        .catch(err => console.log(err));
-        // API.getDummyData();
+  typeOfGraph = () => {
+    if (this.state.graphState === GRAPHS[0]) {
+      return (
+        <PricingGraph
+          labels={this.state.labels}
+          prices={this.state.prices}
+          title={"Unfiltered Pricing Data"}
+        />
+      );
+    } else {
+      return (
+        <PricingGraph
+          labels={this.state.noOutlierslabels}
+          prices={this.state.noOutliersprices}
+          title={"Pricing Data for Different Crytocurrencies"}
+        />
+      );
     }
-    retrieveSpotPrices = () => {
-        // axios.get(`https://api.coinbase.com/v2/prices/USD/spot`)
-        console.log("hey");
-        API.getAllCoinData().then(res => {
-            console.log("Data here ", res.data.data);
-            let data = res.data.data;
-            let icon = {};
-            let labels = [];
-            let prices = [];
-            let coins = [];
-            // console.log(data);
-            for(let i = 0; i < data.length; i++){
-                console.log("Looking...");
-              
-                labels.push(data[i].base);
-                prices.push(parseFloat(data[i].amount));
-                coins.push({label: data[i].base, price: data[i].amount});
-                console.log(data[i].base);
-            }
-            // console.log(coins);
+  };
 
-            // console.log(this.state.allSpotPrices);
-
-            let filterArray = [];
-            let maxValue = parseFloat(coins[0].price);
-            for (const price in coins) {
-                if (price > maxValue) {
-                    maxValue = price;
-                }
-            }
-
-            for(let i = 1; i < coins.length; i++){
-                if(parseFloat(coins.price) > maxValue){
-                    maxValue = parseFloat(coins.price);
-                }
-                else{
-                    filterArray.push(coins[i]);
-                }
-            }
-            // let result = coins.map(({ label }) => label) //this works
-            // console.log("Labels: "+result);
-            //   let filtered = prices.filter(function (str) { return str.includes(PATTERN); });
-            
-            this.setState({
-                prices: prices,
-                labels: labels,
-                allSpotPrices: coins,
-                noOutlierslabels: filterArray.map(({ label }) => label),
-                noOutliersprices: filterArray.map(({ price }) => price)
-              });
-            //   console.log("prices "+this.state.noOutliersprices);
-        })        
-    }
-
-
-    /*** RENDERING FUNCTIONS */
-    componentDidMount() {
-        this.retrieveSpotPrices();
-        this.retrieveHistoricalData();
-    }
-
-    // render (){
-    //     return (
-    //             <Container fluid>
-    //                 <Row>
-    //                     <Col size="md-6">
-    //                         <PricingGraph
-    //                             labels= {this.state.labels}
-    //                             prices= {this.state.prices}
-    //                         />
-    //                     </Col>
-    //                     <Col size="md-6">
-    //                         <PricingGraph
-    //                             labels= {this.state.noOutlierslabels}
-    //                             prices= {this.state.noOutliersprices}
-    //                         />
-    //                     </Col>
-    //                 </Row>
-    //             </Container>
-    //     );
-    // }
-    render (){
-        return (
-            // <div>
-                <div className="pricingContent">
-
-                    <PricingGraph
-                        labels= {this.state.noOutlierslabels}
-                        prices= {this.state.noOutliersprices} 
-                        title= {"Pricing Data for Different Crytocurrencies"} 
-                    />
-                </div>
-                );
-                                    {/* <HistoricalGraph
-                        labels= {this.state.historicalBTC.time}
-                        prices= {this.state.historicalBTC.prices} 
-                        volume= {this.state.historicalBTC.volume} 
-                    /> */}
-                {/* </div> */}
-               
-        
-    }
+  /*** RENDERING FUNCTIONS ***************************************************************/
+  componentDidMount() {
+    this.retrieveSpotPrices();
   }
 
-  export default Pricing;
+  render() {
+    return (
+      // <div>
+      <div className="pricingContent">
+        {this.typeOfGraph()}
+
+        <form>
+            <div>
+        <Dropdown
+          list={GRAPHS}
+          onChange={this.handleInputChange}
+          name="graphState"
+          className="graphType"
+        />
+        </div>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default Pricing;
