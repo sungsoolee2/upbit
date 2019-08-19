@@ -51,11 +51,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(passportControl.initialize())
 
-// db.sequelize.sync().then(function(){
-//   app.listen(PORT, function() {
-//     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-//   });
-//  });
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+db.sequelize.sync().then(function(){
+  app.listen(PORT, function() {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
+ });
+// app.listen(PORT, function() {
+//   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+// });

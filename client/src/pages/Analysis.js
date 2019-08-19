@@ -26,7 +26,7 @@ import API from "../utils/API";
  *
  *
  */
-
+const GRAPHS = ["Historical Price & Volume", "Omenics Sentiment", "Regression", "Vader Sentiment"];
 // let historicalData = () => {
 class Analysis extends Component {
   state = {
@@ -37,7 +37,10 @@ class Analysis extends Component {
     datasets: [],
     fromDate: "",
     toDate: "",
-    title: "BTC"
+    title: "BTC",
+    senseOmnData: [],
+    senseData: [],
+    graphState: GRAPHS[0]
   };
   /*** RENDERING FUNCTIONS */
   componentDidMount() {
@@ -53,9 +56,6 @@ class Analysis extends Component {
       });
     });
   }
-  getHistoricalData = () => {
-    
-  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -87,6 +87,37 @@ class Analysis extends Component {
       });
     }
   };
+
+  typeOfGraph = () => {
+
+    console.log("Graph state is "+this.state.graphState);
+    if(this.state.graphState === GRAPHS[0])
+    {
+      return (
+        <HistoricalGraph
+        labels={this.state.labels}
+        prices={this.state.prices}
+        volume={this.state.volume}
+        title={this.state.title}
+      />
+      );
+    }
+    else{
+      return (
+        <RegressionGraph
+        labels={this.state.labels}
+        prices={this.state.prices}
+        volume={this.state.volume}
+        title={this.state.title}
+      />
+
+      );
+    }
+
+
+
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
     let fromDate = this.state.fromDate;
@@ -154,80 +185,84 @@ class Analysis extends Component {
       }
     }
   };
-  render() {
-    return (
-      // <Container>
-      <div className="analysisContent">
-        
-        <HistoricalGraph
-          labels={this.state.labels}
-          prices={this.state.prices}
-          volume={this.state.volume}
-          title={this.state.title}
-        />
 
-        <div className="searchOptions">
-        <Dropdown
-            list={[
-              "List of Cryptocurrencies",
-              "BTC",
-              "ETH",
-              "ETC",
-              "LTC",
-              "ZRX",
-              "USDC",
-              "BAT",
-              "LINK",
-              "DAI",
-              "ZEC",
-              "XRP",
-              "XLM",
-              "EOS",
-              "XTZ",
-              "EUR",
-              "GBP",
-              "CAD",
-              "JPY"
-            ]}
-            onChange={this.handleInputChange}
-            name="ticker"
-          />
-          <form>
-            <Input
-              value={this.state.ticker.toUpperCase()}
+
+  render() {
+      return (
+        // <Container>
+        <div className="analysisContent">
+
+          {this.typeOfGraph()}
+  
+          <div className="searchOptions">
+          <Dropdown
+              list={[
+                "List of Cryptocurrencies",
+                "BTC",
+                "ETH",
+                "ETC",
+                "LTC",
+                "ZRX",
+                "USDC",
+                "BAT",
+                "LINK",
+                "DAI",
+                "ZEC",
+                "XRP",
+                "XLM",
+                "EOS",
+                "XTZ",
+                "EUR",
+                "GBP",
+                "CAD",
+                "JPY"
+              ]}
               onChange={this.handleInputChange}
               name="ticker"
-              placeholder="Ticker (example: BTC)"
             />
-            <Input
-              value={this.state.fromDate}
-              onChange={this.handleInputChange}
-              name="fromDate"
-              placeholder="From Date (YYYY-MM-DD)"
+            <form>
+              <Input
+                value={this.state.ticker.toUpperCase()}
+                onChange={this.handleInputChange}
+                name="ticker"
+                placeholder="Ticker (example: BTC)"
+              />
+              <Input
+                value={this.state.fromDate}
+                onChange={this.handleInputChange}
+                name="fromDate"
+                placeholder="From Date (YYYY-MM-DD)"
+              />
+              <Input
+                value={this.state.toDate}
+                onChange={this.handleInputChange}
+                name="toDate"
+                placeholder="To Date (YYYY-MM-DD)"
+              />
+              <FormBtn
+                disabled={!this.state.ticker}
+                onClick={this.handleFormSubmit}
+              >
+                SUBMIT
+              </FormBtn>
+            </form>
+            {/* <form> */}
+            <Dropdown list={GRAPHS}
+            onChange={this.handleInputChange}
+            name="graphState"
+            className="graphType"
             />
-            <Input
-              value={this.state.toDate}
-              onChange={this.handleInputChange}
-              name="toDate"
-              placeholder="To Date (YYYY-MM-DD)"
-            />
-            <FormBtn
-              disabled={!this.state.ticker}
-              onClick={this.handleFormSubmit}
-            >
-              SUBMIT
-            </FormBtn>
-          </form>
-          <form>
-            {/* <FormBtnUpdate onClick={this.handleFormSubmit}>
-              UPDATE
-            </FormBtnUpdate> */}
-
-          </form>
+  
+              {/* <FormBtnUpdate onClick={this.handleFormSubmit}>
+                UPDATE
+              </FormBtnUpdate> */}
+  
+            {/* </form> */}
+          </div>
+          
         </div>
-        
-      </div>
-    );
-  }
+      );
+    }
+
 }
 export default Analysis;

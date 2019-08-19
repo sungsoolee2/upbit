@@ -28,13 +28,29 @@ export function FormBtnUpdate(props) {
 
 export function DropdownC(props) {
   let list = props.list;
-  
-  return <div> 
-      <select className="form-control yellow darken-2" onChange={props.onChange} name={props.name}>
+  let v = props.value;
 
-      {list.map((item, i) => (
-          <option key={i} value={item}>{item}</option>     
-      ))}
-      </select>
-  </div>;
+  if(v){
+    return <div> 
+    <select className="form-control yellow darken-2" onChange={props.onChange} name={props.name}>
+
+    {list.map((item, i) => (
+        <option key={i} value={i}>{item}</option>     
+    ))
+  }
+    </select>
+</div>;
+  }
+  else{
+    return <div> 
+    <select className="form-control yellow darken-2" onChange={props.onChange} name={props.name}>
+
+    {list.map((item, i) => (
+        <option key={i} value={item}>{item}</option>     
+    ))}
+    </select>
+</div>;
+  }
+  
+
 }

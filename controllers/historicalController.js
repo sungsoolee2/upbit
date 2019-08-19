@@ -31,6 +31,26 @@ module.exports = {
         
         return res.json({prices: prices, volume: volume, time: time});
     },
+    parseDataSense: (req, res) => {
+
+        // console.log(req);
+        let data = req.body.data;
+
+        // console.log(req.body.data);
+        let prices = [];
+        let volume = [];
+        let time = [];
+
+        for(let i = data.length - 1; i >= 0 ; i--){
+            
+            prices.push(data[i].price_usd);
+            volume.push(data[i].volume_usd);
+            let t = data[i].timestamp;
+            time.push(moment(t).format("YYYY-MM-DD"));
+        }
+        
+        return res.json({prices: prices, volume: volume, time: time});
+    },
     getOmenicsDataTicker: (req, res) => {
 
         let ticker = req.params.ticker;
