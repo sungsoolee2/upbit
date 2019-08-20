@@ -15,7 +15,9 @@ module.exports = function(sequelize, DataTypes) {
         reddit_sentiment: DataTypes.DOUBLE,
         reddit_volume: DataTypes.DOUBLE,
         buzz: DataTypes.DOUBLE,
-        buzz_raw: DataTypes.DOUBLE
+        buzz_raw: DataTypes.DOUBLE,
+        high: DataTypes.DOUBLE,
+        low: DataTypes.DOUBLE
     });
   
     DateEntry.associate = function(models) {
