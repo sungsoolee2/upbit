@@ -24,7 +24,7 @@ function HistoricalGraph(props) {
   },{
     //bar??????? maybe replace this with another line graph to demonstrate volume
     type: 'bar',
-    label: 'Volume',
+    label: 'Volume in USD',
     data: props.volume,
     fill: false,
     backgroundColor: '#818181',

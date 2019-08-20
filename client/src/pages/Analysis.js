@@ -27,6 +27,10 @@ import API from "../utils/API";
  *
  */
 const GRAPHS = ["Historical Price & Volume", "Omenics Sentiment", "Regression", "Vader Sentiment"];
+
+const escapeString = (string) => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
 // let historicalData = () => {
 class Analysis extends Component {
   state = {
@@ -58,8 +62,12 @@ class Analysis extends Component {
   }
 
   handleInputChange = event => {
-    const { name, value } = event.target;
-    console.log(event.target.value);
+    let { name, value } = event.target;
+    if(name === "fromDate" || name === "toDate")
+    {
+      console.log("CHANGING")
+      console.log(value);
+    }
     if(value !== "List of Cryptocurrencies")
     {
       this.setState({
@@ -118,6 +126,7 @@ class Analysis extends Component {
 
   }
 
+  // HANDLES HOW THE SUBMIT BUTTON WORKS FOR 
   handleFormSubmit = event => {
     event.preventDefault();
     let fromDate = this.state.fromDate;
@@ -135,11 +144,14 @@ class Analysis extends Component {
        *API get the historical data for the specific ticker
        */
       query+= ticker;
+      let str = '/';
+
       if (fromDate) {
         console.log(fromDate);
-        query += "/"+fromDate;
+        query += "/"+fromDate.replace(/\//g,"-");
+        // console.log("FROM DATE", fromDate.replace(/\//g,"-"));
         if(toDate){
-          query += "/"+toDate;
+          query += "/"+toDate.replace(/\//g,"-");
         }
 
         API.getExactDateHist(query).then(res => {
@@ -192,6 +204,7 @@ class Analysis extends Component {
         // <Container>
         <div className="analysisContent">
 
+{/* THIS CHANGES THE GRAPH SHOWN */}
           {this.typeOfGraph()}
   
           <div className="searchOptions">
@@ -231,13 +244,13 @@ class Analysis extends Component {
                 value={this.state.fromDate}
                 onChange={this.handleInputChange}
                 name="fromDate"
-                placeholder="From Date (YYYY-MM-DD)"
+                placeholder="From Date"
               />
               <Input
                 value={this.state.toDate}
                 onChange={this.handleInputChange}
                 name="toDate"
-                placeholder="To Date (YYYY-MM-DD)"
+                placeholder="To Date"
               />
               <FormBtn
                 disabled={!this.state.ticker}

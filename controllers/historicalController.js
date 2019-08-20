@@ -26,7 +26,7 @@ module.exports = {
             prices.push(data[i].price_usd);
             volume.push(data[i].volume_usd);
             let t = data[i].timestamp;
-            time.push(moment(t).format("YYYY-MM-DD"));
+            time.push(moment(t).format("MM/DD/YY"));
         }
         
         return res.json({prices: prices, volume: volume, time: time});
@@ -46,7 +46,7 @@ module.exports = {
             prices.push(data[i].price_usd);
             volume.push(data[i].volume_usd);
             let t = data[i].timestamp;
-            time.push(moment(t).format("YYYY-MM-DD"));
+            time.push(moment(t).format("MM/DD/YY"));
         }
         
         return res.json({prices: prices, volume: volume, time: time});
@@ -119,9 +119,10 @@ module.exports = {
     getOmenicsDateTicker: (req, res) => {
 
         let ticker = req.params.ticker;
-        let fromDate = req.params.fromDate;
-        let toDate = req.params.toDate;
-
+        // let fromDate = req.params.fromDate;
+        // let toDate = req.params.toDate;
+        let fromDate = moment(req.params.fromDate).format("YYYY-MM-DD");
+        let toDate = moment(req.params.toDate).format("YYYY-MM-DD");
         // console.log(req.params.ticker); //this should be the ticker
         console.log("THE FROM DATE ", fromDate);
         let currentDate = "";
