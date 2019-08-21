@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import isAuthenticated from '../isAuthenticated';
 import API from '../utils/API';
 import './styles/news.css'
+// import "./styles/pricing.css";
+import NewsPricing from "./Newspricing";
 import Mainfooter from '../components/Footer/footer'
+// import PricingGraph from "../components/PricingGraph";
 import moment from 'moment';
 console.log("Hit News Page!");
+
 
 class News extends Component {
 
@@ -28,12 +32,14 @@ class News extends Component {
     
         render() {
           return (
+
           <div className="newsContent">
             <div className="newsDiv">
             <div className="newsFront">
             <h3>Latest news</h3>
              <h3>on Cryptocurrency</h3>
             </div>
+            {/* <NewsPricing/> */}
             <div className="newsData">
               {this.state.news.map(((data, i) => (
                 <ul className="newsList" key={i}>

@@ -194,7 +194,7 @@ function SenseLineGraph(props) {
 
   return (
     <div className="graphDiv">
-      <h2 className="graphTitle">{props.title}</h2>
+      <h6 className="graphTitle">Sentiment Data</h6>
       <Bar data={data} options={options} />
     </div>
   );

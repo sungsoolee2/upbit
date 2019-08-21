@@ -236,7 +236,7 @@ class Analysis extends Component {
         {this.typeOfGraph()}
 
         <div className="searchOptions">
-          <Dropdown
+        <Dropdown
             list={[
               "List of Cryptocurrencies",
               "BTC",
@@ -257,45 +257,37 @@ class Analysis extends Component {
             onChange={this.handleInputChange}
             name="ticker"
           />
-          <form>
-            <Input
-              value={this.state.ticker.toUpperCase()}
-              onChange={this.handleInputChange}
-              name="ticker"
-              placeholder="Ticker (example: BTC)"
-            />
-            <Input
-              value={this.state.fromDate}
-              onChange={this.handleInputChange}
-              name="fromDate"
-              placeholder="From Date"
-            />
-            <Input
-              value={this.state.toDate}
-              onChange={this.handleInputChange}
-              name="toDate"
-              placeholder="To Date"
-            />
-            <FormBtn
-              disabled={!this.state.ticker}
-              onClick={this.handleFormSubmit}
-            >
-              SUBMIT
-            </FormBtn>
-          </form>
-          {/* <form> */}
-          <Dropdown
-            list={GRAPHS}
+           <Dropdown list={GRAPHS}
             onChange={this.handleInputChange}
             name="graphState"
             className="graphType"
-          />
-
-          {/* <FormBtnUpdate onClick={this.handleFormSubmit}>
-                UPDATE
-              </FormBtnUpdate> */}
-
-          {/* </form> */}
+            />
+            <form>
+              <Input
+                value={this.state.ticker.toUpperCase()}
+                onChange={this.handleInputChange}
+                name="ticker"
+                placeholder="Ticker (example: BTC)"
+              />
+              <Input
+                value={this.state.fromDate}
+                onChange={this.handleInputChange}
+                name="fromDate"
+                placeholder="From Date"
+              />
+              <Input
+                value={this.state.toDate}
+                onChange={this.handleInputChange}
+                name="toDate"
+                placeholder="To Date"
+              />
+              <FormBtn
+                disabled={!this.state.ticker}
+                onClick={this.handleFormSubmit}
+              >
+                SUBMIT
+              </FormBtn>
+            </form>
         </div>
       </div>
     );

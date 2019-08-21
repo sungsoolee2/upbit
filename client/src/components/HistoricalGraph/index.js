@@ -11,14 +11,14 @@ function HistoricalGraph(props) {
     type:'line',
     data: props.prices,
     fill: false,
-    borderColor: '#cfbd18', 
+    borderColor: '#a2d4ff', 
     // borderColor: '#55cbfa',   
-    backgroundColor: '#cfbd18',
+    backgroundColor: '#a2d4ff',
     borderJoinStyle: 'miter',
     // backgroundColor: '#f5f5f5',
-    pointBorderColor: '#cfbd18',
-    pointBackgroundColor: '#cfbd18',
-    // pointHoverBackgroundColor: '#EC932F',
+    pointBorderColor: '#a2d4ff',
+    pointBackgroundColor: '#a2d4ff',
+    pointHoverBackgroundColor: 'white',
     // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
   },{
@@ -27,9 +27,9 @@ function HistoricalGraph(props) {
     label: 'Volume in USD',
     data: props.volume,
     fill: false,
-    backgroundColor: '#818181',
+    backgroundColor: '#667f94',
     borderColor: '#818181',
-    hoverBackgroundColor: '#71B37C',
+    hoverBackgroundColor: '#f4f4fd',
     hoverBorderColor: '#71B37C',
     yAxisID: 'y-axis-2'
     }]
@@ -93,13 +93,12 @@ function HistoricalGraph(props) {
 
     return (
       <div className="graphDiv">
-        <h2 className="graphTitle">Historical Data for {props.title}</h2>
-        <div>
+        <h4 className="graphTitle">Historical Data for {props.title}</h4>
+
   <Bar
           data={data}
           options={options}
         />
-        </div>
       
       </div>
     );

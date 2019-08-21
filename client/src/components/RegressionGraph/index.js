@@ -18,7 +18,7 @@ function RegressionGraph(props) {
   }
   // console.log(parsedData);
   const result = regression.linear(parsedCoords);
-  console.log("THIS IS THE RESULT", result.points[0][1]);
+  // console.log("THIS IS THE RESULT", result.points[0][1]);
 
   // y data points for the regression data
   let regressionLine = [];
@@ -34,25 +34,26 @@ function RegressionGraph(props) {
     type:'line',
     data: parsedData,
     fill: false,
-    borderColor: '#cfbd18', 
+    borderColor: '#a2d4ff', 
     // borderColor: '#55cbfa',   
-    backgroundColor: '#cfbd18',
+    backgroundColor: '#a2d4ff',
     borderJoinStyle: 'miter',
     // backgroundColor: '#f5f5f5',
-    pointBorderColor: '#cfbd18',
-    pointBackgroundColor: '#cfbd18',
-    // pointHoverBackgroundColor: '#EC932F',
+    pointBorderColor: '#a2d4ff',
+    pointBackgroundColor: '#a2d4ff',
+    pointHoverBackgroundColor: 'white',
     // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
+    defaultFontColor: 'white',
   },{
     //bar??????? maybe replace this with another line graph to demonstrate volume
     type: 'line',
     label: 'Regression Analysis',
     data: regressionLine,
     fill: false,
-    backgroundColor: '#334CB3',
-    borderColor: '#334CB3',
-    hoverBackgroundColor: '#0E1B51',
+    backgroundColor: '#667f94',
+    borderColor: '#667f94',
+    hoverBackgroundColor: '#f4f4fd',
     hoverBorderColor: '#334CB3',
     yAxisID: 'y-axis-2'
     }]
@@ -60,7 +61,7 @@ function RegressionGraph(props) {
     
     const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     labels: props.labels,
     tooltips: {
     mode: 'label'
@@ -116,7 +117,7 @@ function RegressionGraph(props) {
 
     return (
       <div className="graphDiv">
-        <h2 className="graphTitle">{props.title}</h2>
+        <h4 className="graphTitle">Regression Data for {props.title}</h4>
         <Bar
           data={data}
           options={options}
