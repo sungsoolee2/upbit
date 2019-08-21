@@ -30,12 +30,10 @@ const GRAPHS = [
   "Historical Price & Volume",
   "Regression",
   "Omenics Sentiment",
-  "Vader Sentiment"
+  "Vader Sentiment",
+  "Current Spot Pricing"
 ];
 
-const escapeString = string => {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-};
 // let historicalData = () => {
 class Analysis extends Component {
   state = {
@@ -51,10 +49,15 @@ class Analysis extends Component {
     senseOmnData: [],
     senseData: {},
     graphState: GRAPHS[0],
-    dataTicker: []
+    coinbase_prices: [],
+    coinbase_labels: [],
+    noOutlierslabels: [],
+    noOutliersprices: []
   };
   /*** RENDERING FUNCTIONS */
   componentDidMount() {
+
+    this.retrieveSpotPrices();
     API.getHistData("BTC").then(res => {
       console.log(res);
       API.parseDataTPV(res).then(res => {
@@ -67,6 +70,64 @@ class Analysis extends Component {
       });
     });
   }
+
+  retrieveSpotPrices = () => {
+    // axios.get(`https://api.coinbase.com/v2/prices/USD/spot`)
+    console.log("hey");
+    API.getAllCoinData().then(res => {
+      console.log("Data here ", res.data.data);
+      let data = res.data.data;
+      let icon = {};
+      let coinbase_labels = [];
+      let coinbase_prices = [];
+      let coins = [];
+      // console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        console.log("Looking...");
+        coinbase_labels.push(data[i].base);
+        coinbase_prices.push(parseFloat(data[i].amount));
+        coins.push({ coinbase_labels: data[i].base, coinbase_prices: data[i].amount });
+        console.log(data[i].base);
+      }
+      // console.log(coins);
+
+      // console.log(this.state.allSpotPrices);
+
+      let filterArray = [];
+      let maxValue = parseFloat(coins[0].coinbase_prices);
+      let maxCoin = coins[0];
+      for (const coinbase_prices in coins) {
+        if (coinbase_prices > maxValue) {
+          maxValue = coinbase_prices;
+        }
+      }
+
+      for (let i = 1; i < coins.length; i++) {
+        if (parseFloat(coins[i].coinbase_prices) > maxValue) {
+          maxValue = parseFloat(coins[i].coinbase_prices);
+          filterArray.push(coins[maxCoin]);
+        } else if (
+          coins[i].label !== "JPY" &&
+          coins[i].label !== "GBP" &&
+          coins[i].label !== "CAD" &&
+          coins[i].label !== "EUR"
+        ) {
+          filterArray.push(coins[i]);
+        }
+      }
+      // let result = coins.map(({ label }) => label) //this works
+      // console.log("Labels: "+result);
+      //   let filtered = prices.filter(function (str) { return str.includes(PATTERN); });
+
+      this.setState({
+        coinbase_prices: coinbase_prices,
+        coinbase_labels: coinbase_labels,
+        noOutlierslabels: filterArray.map(({ coinbase_labels }) => coinbase_labels),
+        noOutliersprices: filterArray.map(({ coinbase_prices }) => coinbase_prices)
+      });
+      //   console.log("prices "+this.state.noOutliersprices);
+    });
+  };
 
   handleInputChange = event => {
     let { name, value } = event.target;
@@ -132,7 +193,7 @@ class Analysis extends Component {
         <RegressionGraph
           labels={this.state.labels}
           prices={this.state.prices}
-          title={"Regression Analysis for " + this.state.title}
+          title={this.state.title}
         />
       );
     } else if (this.state.graphState === GRAPHS[2]) {
@@ -143,12 +204,21 @@ class Analysis extends Component {
           senseData={this.state.senseData}
         />
       );
-    } else {
+    } else if (this.state.graphState === GRAPHS[3]) {
       return (
         <SenseLineGraph
           labels={this.state.labels}
           senseData={this.state.senseData}
           title={this.state.title}
+        />
+      );
+    }
+    else{
+      return (
+        <PricingGraph
+          labels={this.state.noOutlierslabels}
+          prices={this.state.noOutliersprices}
+          title={"Pricing Data for Different Crytocurrencies"}
         />
       );
     }
