@@ -33,7 +33,7 @@ const Mainfooter = () => (
         height="30"
       />
       </div>
-      <span>&copy 2019 Advance Investments, All rights reserved.</span>
+      <span>&copy; 2019 Advance Investments, All rights reserved.</span>
   </div>
 )
 

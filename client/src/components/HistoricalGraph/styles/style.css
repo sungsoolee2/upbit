@@ -1,6 +1,7 @@
 .analysisContent{
-    background-image: url(./images/b2.jpg);
-    background-size: 100% 100%;
+    background: rgb(107, 107, 107);
+    /* background-image: url(./images/b2.jpg);
+    background-size: 100% 100%; */
     color: whitesmoke;
     display: flex;
     height: 100vh;
@@ -12,13 +13,14 @@
   /* color: #5c5c5c; */
 }
 .graphDiv{
-  margin: 80px 20px 20px 20px;
-  width: 100%;
-  box-shadow: 0 0 20px rgb(71, 71, 71);
-  border: solid 2px rgb(163, 163, 163);
+  margin: 65px 0px 10px 10px;
+  width: 80%;
+  /* box-shadow: 0 0 20px rgb(71, 71, 71); */
+  border: solid 2px rgb(133, 133, 133);
   padding: 30px;
   /* margin-top: 100px; */
-  background: #202022;
+  /* color: #f4f4fd; */
+  background-color: #030122;
   /* background-image: linear-gradient(to top right, #919191, #d1ebec); */
   grid-area: graph;
 }

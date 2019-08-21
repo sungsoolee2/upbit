@@ -5,6 +5,7 @@ import moment from "moment";
 import PricingGraph from "../components/PricingGraph";
 import HistoricalGraph from "../components/HistoricalGraph";
 import RegressionGraph from "../components/RegressionGraph";
+import Spotprice from './Spotprice'
 
 ////// COMPONENTS
 import "./styles/analysis.css";
@@ -233,6 +234,11 @@ class Analysis extends Component {
               onChange={this.handleInputChange}
               name="ticker"
             />
+            <Dropdown list={GRAPHS}
+            onChange={this.handleInputChange}
+            name="graphState"
+            className="graphType"
+            />
             <form>
               <Input
                 value={this.state.ticker.toUpperCase()}
@@ -260,11 +266,7 @@ class Analysis extends Component {
               </FormBtn>
             </form>
             {/* <form> */}
-            <Dropdown list={GRAPHS}
-            onChange={this.handleInputChange}
-            name="graphState"
-            className="graphType"
-            />
+     
   
               {/* <FormBtnUpdate onClick={this.handleFormSubmit}>
                 UPDATE

@@ -32,6 +32,7 @@ function RegressionGraph(props) {
     // pointHoverBackgroundColor: '#EC932F',
     // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
+    defaultFontColor: 'white',
   },{
     //bar??????? maybe replace this with another line graph to demonstrate volume
     type: 'line',
@@ -48,7 +49,7 @@ function RegressionGraph(props) {
     
     const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     labels: props.labels,
     tooltips: {
     mode: 'label'
@@ -104,7 +105,7 @@ function RegressionGraph(props) {
 
     return (
       <div className="graphDiv">
-        <h2 className="graphTitle">{props.title}</h2>
+        <h4 className="graphTitle">Regression Data for {props.title}</h4>
         <Bar
           data={data}
           options={options}
