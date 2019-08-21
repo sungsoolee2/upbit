@@ -30,8 +30,7 @@ const GRAPHS = [
   "Historical Price & Volume",
   "Regression",
   "Omenics Sentiment",
-  "Vader Sentiment",
-  "Current Spot Pricing"
+  "Vader Sentiment"
 ];
 
 // let historicalData = () => {
@@ -57,7 +56,7 @@ class Analysis extends Component {
   /*** RENDERING FUNCTIONS */
   componentDidMount() {
 
-    this.retrieveSpotPrices();
+    
     API.getHistData("BTC").then(res => {
       console.log(res);
       API.parseDataTPV(res).then(res => {
@@ -204,21 +203,12 @@ class Analysis extends Component {
           senseData={this.state.senseData}
         />
       );
-    } else if (this.state.graphState === GRAPHS[3]) {
+    } else {
       return (
         <SenseLineGraph
           labels={this.state.labels}
           senseData={this.state.senseData}
           title={this.state.title}
-        />
-      );
-    }
-    else{
-      return (
-        <PricingGraph
-          labels={this.state.noOutlierslabels}
-          prices={this.state.noOutliersprices}
-          title={"Pricing Data for Different Crytocurrencies"}
         />
       );
     }
