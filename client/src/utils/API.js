@@ -36,6 +36,10 @@ const API = {
     getExactDateHist: (query) => {
         console.log(query);
         return axios.get("api/historical/getExactDateHist/"+query)
+    },
+    parseDataSense: (parseData) => {
+        return axios.post('api/historical/parseDataSense', parseData);
+
     }
 }
 export default API;

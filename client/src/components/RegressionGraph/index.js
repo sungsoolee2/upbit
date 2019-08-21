@@ -5,15 +5,27 @@ import regression from 'regression';
 import { parse } from 'querystring';
 function RegressionGraph(props) {
   // console.log(props);
-  console.log(props.prices);
+  // console.log(props.prices);
   let parsedData = [];
-
+  let parsedCoords = [];
+  let x = "";
+  let y = 0;
   for(let i = 0; i < props.prices.length; i++){
-    parsedData.push(parseFloat(props.prices[i]));
+    y = parseFloat(props.prices[i]);
+    x = props.labels[i];
+    parsedData.push(y);
+    parsedCoords.push([i+1,y]);
   }
-  console.log(parsedData);
-  const result = regression.linear(parsedData);
-  console.log(result);
+  // console.log(parsedData);
+  const result = regression.linear(parsedCoords);
+  // console.log("THIS IS THE RESULT", result.points[0][1]);
+
+  // y data points for the regression data
+  let regressionLine = [];
+  for(let i = 0; i < result.points.length; i++){
+    regressionLine.push(result.points[i][1]);
+    console.log(result.points[i][1]);
+  }
   
   const data = {
     //line for the pricing data
@@ -22,14 +34,14 @@ function RegressionGraph(props) {
     type:'line',
     data: parsedData,
     fill: false,
-    borderColor: '#cfbd18', 
+    borderColor: '#a2d4ff', 
     // borderColor: '#55cbfa',   
-    backgroundColor: '#cfbd18',
+    backgroundColor: '#a2d4ff',
     borderJoinStyle: 'miter',
     // backgroundColor: '#f5f5f5',
-    pointBorderColor: '#cfbd18',
-    pointBackgroundColor: '#cfbd18',
-    // pointHoverBackgroundColor: '#EC932F',
+    pointBorderColor: '#a2d4ff',
+    pointBackgroundColor: '#a2d4ff',
+    pointHoverBackgroundColor: 'white',
     // pointHoverBorderColor: '#EC932F',
     yAxisID: 'y-axis-1',
     defaultFontColor: 'white',
@@ -37,12 +49,12 @@ function RegressionGraph(props) {
     //bar??????? maybe replace this with another line graph to demonstrate volume
     type: 'line',
     label: 'Regression Analysis',
-    data: parsedData,
+    data: regressionLine,
     fill: false,
-    backgroundColor: '#71B37C',
-    borderColor: '#71B37C',
-    hoverBackgroundColor: '#71B37C',
-    hoverBorderColor: '#71B37C',
+    backgroundColor: '#667f94',
+    borderColor: '#667f94',
+    hoverBackgroundColor: '#f4f4fd',
+    hoverBorderColor: '#334CB3',
     yAxisID: 'y-axis-2'
     }]
     };
