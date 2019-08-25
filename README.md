@@ -6,7 +6,7 @@ The app is created on React front-end, with sequelize Node express back-end usin
 
 [Heroku Link](https://upbit-v1.herokuapp.com/)
 
-[Demo Link]([Heroku Link](https://drive.google.com/file/d/1aDF-X-xB6eF7m2S9AK5EJ1kjxpvuBAh5/view)
+[Demo Link](https://drive.google.com/file/d/1aDF-X-xB6eF7m2S9AK5EJ1kjxpvuBAh5/view)
 
 )
 
