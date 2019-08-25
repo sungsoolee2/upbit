@@ -15,16 +15,16 @@ Register
 ![Screen shot](/client/public/assets/screenshots/Register.png)
 
 News
-![Screen shot2](client/public/assets/screenshots/News.png)
+![Screen shot2](/client/public/assets/screenshots/News.png)
 
 Pricing
-![Screen shot3](.\public\assets\screenshots\Pricing.png)
+![Screen shot3](/client/public/assets/screenshots/Pricing.png)
 
 Graph
-![Screen shot4](..\public\assets\screenshots\Graph.png)
+![Screen shot4](/client/public/assets/screenshots/Graph.png)
 
 Regression Graph
-![Screen shot5](\public\assets\screenshots\GraphReg.png)
+![Screen shot5](/client/public/assets/screenshots/GraphReg.png)
 
 
 ## Technologies 
