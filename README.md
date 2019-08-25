@@ -5,17 +5,21 @@ Created for project 3 at Northwestern Bootcamp upBit is a interactive financial 
 The app is created on React front-end, with sequelize Node express back-end using MVC architecture.  Passport JWT authorization is applied saving user data onto Mongodb.  
 
 [Heroku Link](https://upbit-v1.herokuapp.com/)
+
+[Demo Link](https://drive.google.com/file/d/1aDF-X-xB6eF7m2S9AK5EJ1kjxpvuBAh5/view)
+
+)
+
 ## Screen Shots
 Register
-![Screen shot]()
-Sign In
-![Screen shot2]()
-Dashboard
-![Screen shot3]()
-Homepage
-![Screen shot3]()
-![Screen shot3]()
-Google Maps
+![Screen shot](.\public\assets\screenshots\Register.jpg)
+News
+![Screen shot2](.\public\assets\screenshots\News.jpg)
+Pricing
+![Screen shot3](.\public\assets\screenshots\Pricing.jpg)
+Graph
+![Screen shot3](.\public\assets\screenshots\Graph.jpg)
+
 ## Technologies used
 - [Node.js](https://en.wikipedia.org/wiki/Node.js)
 - [Materialize Framework](https://materializecss.com/)
