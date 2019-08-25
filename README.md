@@ -12,10 +12,10 @@ The app is created on React front-end, with sequelize Node express back-end usin
 
 ## Screen Shots
 Register
-![Screen shot](\client\public\assets\screenshots\Register.png)
+![Screen shot](client\public\assets\screenshots\Register.png)
 
 News
-![Screen shot2](\public\assets\screenshots\News.png)
+![Screen shot2](\client\public\assets\screenshots\News.png)
 
 Pricing
 ![Screen shot3](.\public\assets\screenshots\Pricing.png)
