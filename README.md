@@ -55,9 +55,9 @@ Winner Most Disruptive 38%
 
 ## Programming Team
 
-**Joey Lansangan** - /Materialize/HTML/CSS/Frontend Visual Design - [Joey](https://joeylansangan.github.io/streetcode/)
+**Joey Lansangan** - /Materialize/HTML/CSS/Frontend Visual Design - [Joey Portfolio](https://joeylansangan.github.io/streetcode/)
 
-**Sung Lee** - /Passport Authentication/News Scraping//NPM Packages/Routing and Backend JS - [Sung](https://sungsoolee2.github.io/developer-portfolio/)
+**Sung Lee** - /Passport Authentication/News Scraping//NPM Packages/Routing and Backend JS - [Sung Portfolio](https://sungsoolee2.github.io/developer-portfolio/)
 
-**Kat Poulos** - /Sequelize MySQL/Graphing NPM packages/API implimentation/Routing and Backend JS - [Kat](https://www.linkedin.com/in/katerina-poulos-451a53189/)
+**Kat Poulos** - /Sequelize MySQL/Graphing NPM packages/API Creation/Routing and Backend JS - [Kat Portfolio](https://www.linkedin.com/in/katerina-poulos-451a53189/)
 
