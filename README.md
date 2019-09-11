@@ -1,8 +1,8 @@
 # upBit
 
-Created for project 3 at Northwestern Bootcamp upBit is a interactive financial app tool that helps traders monitor and analyize crypto currency assets.  A custom API is created using sequelize and MYSQL database of historical data of these currencies using [Coinbase API](https://developers.coinbase.com/) and [Omenics](https://omenics.com/dashboard).  Omenics is a crytpo currency sentiment data analytics tool that aggregates news and sentiment on online platforms and gives a sent-score.  We also use Vader npm, sentiment indicator package to do analysis vs Omenics data.  Various scraping and charting npm packages are used to populate our custom API with news and data.
+Created for project 3 at Northwestern Bootcamp upBit is an interactive financial app that helps traders monitor and analyze crypto-currency assets.  A custom API is created using sequelize and MYSQL database.  We use [Coinbase API](https://developers.coinbase.com/) and [Omenics](https://omenics.com/dashboard) to collect historical and spot data of crypto-currencies. Various scraping and charting npm packages are also used to display news and analytics. 
 
-The app is created on React front-end, with sequelize Node express back-end using MVC architecture.  Passport JWT authorization is applied saving user data onto Mongodb.  
+The app is created on React front-end, with sequelize express backend using MVC architecture.  Passport React JWT authorization is applied saving user data onto MongoDB.  
 
 [Heroku Link](https://upbit-v1.herokuapp.com/)
 
